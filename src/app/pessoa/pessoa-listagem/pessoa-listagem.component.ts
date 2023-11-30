@@ -3,6 +3,7 @@ import { Pessoa } from 'src/app/shared/model/pessoa';
 import { PessoaSeletor } from 'src/app/shared/model/seletor/produto.seletor';
 import { PessoaService } from '../../shared/service/pessoa.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -15,13 +16,13 @@ export class PessoaListagemComponent {
   public pessoa: Array<Pessoa> = new Array();
   public seletor: PessoaSeletor = new PessoaSeletor();
 
-  constructor(private PessoaService: PessoaService,
+  constructor(private pessoaService: PessoaService,
   private router: Router){
 
 
 }
 pesquisar(){
-  this.PessoaService.listarComSeletor(this.seletor).subscribe(
+  this.pessoaService.listarComSeletor(this.seletor).subscribe(
     resultado => {
       this.pessoa = resultado;
     },
@@ -35,11 +36,45 @@ limpar(){
   this.seletor = new PessoaSeletor();
 }
 
-editar(){
-  this.router.navigate(['/produtos/detalhe', ])
+editar(id:number){
+  this.router.navigate(['/pessoa/detalhe', ])
 
 }
 
-excluir(){
+
+buscarPessoa(){
+  this.pessoaService.listarTodos().subscribe(
+    resultado => {
+      this.pessoa = resultado;
+    },
+    erro => {
+      console.log('Erro ao buscar produtos', erro);
+    }
+  );
 }
+
+excluir(id: number){
+
+  Swal.fire({
+    title: 'Você tem certeza disso?',
+    text: "Deseja excluir o produto #" + id + "?",
+    icon: 'warning',
+    showCancelButton: true,
+  }).then((retorno) => {
+    if(retorno.isConfirmed){
+       this.pessoaService.excluir(id).subscribe(
+         sucesso => {
+           Swal.fire("Sucesso", "Produto excluído com sucesso!", 'success');
+           this.buscarPessoa(); //Atualiza a listagem
+         },
+         erro => {
+           Swal.fire("Erro", "Erro ao excluir o produto: " + erro, 'error');
+         }
+       );
+    }
+  }
+  );
 }
+
+}
+

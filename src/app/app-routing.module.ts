@@ -13,9 +13,15 @@ const routes: Routes = [
     loadChildren:() => import('./pessoa/pessoa.module').then(m => m.PessoaModule)
   },
   {
-    path: 'pedido',
+
+    path: 'endereco',
+    loadChildren:() => import('./endereco/endereco.module').then(m => m.EnderecoModule)
+    },
+    {
+      path: 'pedido',
     loadChildren:() => import('./pedido/pedido.module').then(m => m.PedidoModule)
-  }
+
+    }
 ];
 
 @NgModule({
