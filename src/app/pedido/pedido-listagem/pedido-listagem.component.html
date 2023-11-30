@@ -1,1 +1,83 @@
-<p>pedido-listagem works!</p>
+<br>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <!-- https://getbootstrap.com/docs/4.0/components/card/ -->
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          <h5>Filtros</h5>
+        </div>
+        <div class="card-body card-info">
+          <!-- FONTE: https://getbootstrap.com/docs/4.0/components/forms/ -->
+          <form>
+            <!-- <pre>Seletor em JSON ("canteiro de obras - comentar/apagar"): {{seletor | json}}</pre> -->
+              <!-- TODO botar nome e nomeFabricante em uma linha única (cada item ocupando 6 espaços) -->
+              <div class="row">
+                <!-- <div class="form-group col-md-6">
+                  <label for="nome">Nome</label>
+                  <input class="form-control" name="nome" [(ngModel)]="seletor.nome">
+                </div> -->
+              </div>
+
+              <br>
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <button type="submit" class="form-control btn btn-secondary"
+                          (click)="pesquisar()">Pesquisar</button>
+                </div>
+                <div class="form-group col-md-6">
+                  <button type="submit" class="form-control btn btn-danger"
+                          (click)="limpar()">Limpar</button>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header bg-white text-black">
+          <h5>Lista de Pessoas</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <div class="table-responsive">
+                <table class="table table-responsive">
+                  <thead>
+                    <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col" class="text-center">Data de Nascimento</th>
+                      <th scope="col" class="text-center">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let p of pedido">
+                      <td>{{ p.id }}</td>
+                      <td>{{ p.idPessoa }}</td>
+                      <td class="text-center">{{p.total| currency: 'BRL'}}</td>
+                      <td class="text-center">
+                        <button class="btn btn-xs btn-secondary mr-12"
+                                (click)="editar(p.id)">Editar
+                        </button>
+                        &nbsp;
+                        <button class="btn btn-xs btn-danger"
+                                (click)="excluir(p.id)">Excluir
+                        </button>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
