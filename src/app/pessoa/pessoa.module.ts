@@ -16,6 +16,7 @@ import { PessoaDetalheComponent } from './pessoa-detalhe/pessoa-detalhe.componen
     CommonModule,
     FormsModule,
     PessoaRoutingModule
+
   ]
 })
 export class PessoaModule { }

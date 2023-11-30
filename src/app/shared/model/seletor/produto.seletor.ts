@@ -1,6 +1,4 @@
-
-export class Pessoa {
-
+export class PessoaSeletor {
   id: number;
   idEndereco: number;
   nome: string;
@@ -11,6 +9,5 @@ export class Pessoa {
   telefone: string;
   senha: string;
   funcionario: boolean;
-
 
 }
