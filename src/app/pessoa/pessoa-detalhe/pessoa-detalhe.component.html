@@ -37,15 +37,13 @@
           <input type="checkbox" class="form-check-input" id="funcionario">
           <label class="form-check-label" for="funcionario">Funcionário</label>
       </div>
-      <button type="button" class="btn btn-secondary mt-3" id="cadastrarEndereco">Cadastrar Endereço</button>
-      <br>
+      <button class="btn btn-xs btn-secondary mr-12"
+      (click)="enderecoCadastrar()">Cadastrar Endereço
+      </button>
+        &nbsp;
       <br>
       <button type="submit" class="btn btn-primary">Cadastrar</button>
   </form>
 </div>
 
-<script>
-  document.getElementById('cadastrarEndereco').addEventListener('click', function () {
-      window.location.href = "/endereco/detalhe";
-  });
-</script>
+

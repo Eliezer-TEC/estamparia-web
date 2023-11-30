@@ -58,6 +58,7 @@
                       <th scope="col">Id</th>
                       <th scope="col">Nome</th>
                       <th scope="col" class="text-center">Data de Nascimento</th>
+                      <th scope="col"  class="text-center">CPF</th>
                       <th scope="col" class="text-center">Ações</th>
                     </tr>
                   </thead>
@@ -66,13 +67,14 @@
                       <td>{{ p.id }}</td>
                       <td>{{ p.nome }}</td>
                       <td class="text-center">{{p.dtNasc | date: 'dd/MM/yyyy'}}</td>
+                      <td  class="text-center">{{ p.cpf }}</td>
                       <td class="text-center">
                         <button class="btn btn-xs btn-secondary mr-12"
-                                (click)="editar()">Editar
+                                (click)="editar(p.id)">Editar
                         </button>
                         &nbsp;
                         <button class="btn btn-xs btn-danger"
-                                (click)="excluir()">Excluir
+                                (click)="excluir(p.id)">Excluir
                         </button>
                       </td>
 

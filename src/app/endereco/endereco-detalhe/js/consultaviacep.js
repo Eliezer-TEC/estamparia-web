@@ -70,7 +70,40 @@ function validarCEP(cepFormatado){
   return cepValido;
 }
 
-function salvarEndereco(){
-  //TODO chamar no backend
-  alert('Ainda não desenvolvido');
+async function salvarEndereco(){
+ const rua = document.getElementById("rua").value;
+ const bairro = document.getElementById("bairro").value;
+ const cidade = document.getElementById("cidade").value;
+ const estado = document.getElementById("estado").value;
+ const numero = document.getElementById("numero").value;
+
+
+ if (!rua || !bairro || !cidade || !estado || !numero) {
+  alert("Preencha todos os campos");
+  return;
+}
+
+const response = await fetch("http://localhost:8080/api/endereco/cadastrar", {
+        method: "POST",
+        body: JSON.stringify({
+          rua,
+          bairro,
+          cidade,
+          estado,
+          numero,
+        }),
+        headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+        },
+    });
+
+    if (response.ok) {
+      // Se o cadastro foi bem-sucedido, exiba uma mensagem de sucesso
+      alert("Cadastrado com sucesso!");
+      limpar();
+  } else {
+      // Se ocorreu um erro, exiba uma mensagem de erro
+      alert("Erro ao cadastrar. Verifique os campos e tente novamente.");
+  }
+
 }
