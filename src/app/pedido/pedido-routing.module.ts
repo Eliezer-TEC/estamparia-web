@@ -4,6 +4,8 @@ import { PedidoListagemComponent } from './pedido-listagem/pedido-listagem.compo
 
 const routes: Routes = [
   {path: 'lista', component: PedidoListagemComponent},
+  {path: 'detalhe', component: PedidoListagemComponent}
+
 ];
 
 @NgModule({
