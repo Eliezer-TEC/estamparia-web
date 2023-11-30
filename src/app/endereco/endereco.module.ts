@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +14,7 @@ import { EnderecoDetalheComponent } from './endereco-detalhe/endereco-detalhe.co
   ],
   imports: [
     CommonModule,
+    FormsModule,
     EnderecoRoutingModule
   ]
 })

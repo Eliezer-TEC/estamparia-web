@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Pessoa } from 'src/app/shared/model/pessoa';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-pessoa-detalhe',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./pessoa-detalhe.component.scss']
 })
 export class PessoaDetalheComponent {
+
+
+
 
 }
