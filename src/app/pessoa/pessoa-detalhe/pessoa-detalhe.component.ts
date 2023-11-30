@@ -1,8 +1,8 @@
-import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { PessoaService } from '../../shared/service/pessoa.service';
-import { Pessoa } from 'src/app/shared/model/pessoa';
+import { Router } from '@angular/router';
 import { Endereco } from 'src/app/shared/model/endereco';
+import { Pessoa } from 'src/app/shared/model/pessoa';
+import { PessoaService } from 'src/app/shared/service/pessoa.service';
 
 @Component({
   selector: 'app-pessoa-detalhe',
@@ -12,11 +12,14 @@ import { Endereco } from 'src/app/shared/model/endereco';
 export class PessoaDetalheComponent {
 
 
+
+
+
   public idPessoa: number;
   public pessoa: Pessoa = new Pessoa();
   public endereco: Endereco = new Endereco();
 
-  constructor(private PessoaService: PessoaService,
+  constructor(private pessoaService: PessoaService,
     private router: Router){
 
     }

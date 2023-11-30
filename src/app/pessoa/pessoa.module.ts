@@ -1,10 +1,10 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PessoaRoutingModule } from './pessoa-routing.module';
 import { PessoaListagemComponent } from './pessoa-listagem/pessoa-listagem.component';
 import { PessoaDetalheComponent } from './pessoa-detalhe/pessoa-detalhe.component';
-import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,8 +14,9 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    PessoaRoutingModule,
-    FormsModule
+    FormsModule,
+    PessoaRoutingModule
+
   ]
 })
 export class PessoaModule { }
