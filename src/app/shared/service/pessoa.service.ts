@@ -3,6 +3,7 @@ import { Pessoa } from '../model/pessoa';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { PessoaSeletor } from '../model/seletor/produto.seletor';
+import { Endereco } from '../model/endereco';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { PessoaSeletor } from '../model/seletor/produto.seletor';
 export class PessoaService {
 
   private readonly API = 'http://localhost:8080/api/pessoa';
-
+  private readonly APIe = 'http://localhost:8080/api/endereco';
   constructor(private httpClient: HttpClient) { }
 
 
@@ -25,6 +26,10 @@ export class PessoaService {
 
   salvar(pessoa: Pessoa): Observable<Pessoa> {
     return this.httpClient.post<Pessoa>(this.API, pessoa);
+  }
+
+  salvarEndereco(endereco : Endereco): Observable<Endereco>{
+    return this.httpClient.post<Endereco> (this.APIe, endereco);
   }
 
   atualizar(pessoa: Pessoa): Observable<Pessoa> {
