@@ -1,37 +1,45 @@
-<div class="container mt-5">
-  <h2>Cadastro de Pedidos</h2>
-  <form>
-
-    <div class="mb-3">
-      <label for="idCamisa" class="form-label">ID Camisa:</label>
-      <select class="form-control" name="camisa">
-
-
-
-      </select>
-
-
+<div class="bg-light min-vh-100">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card border-dark">
+          <div class="card-header bg-dark text-white">
+            <h5 class="m-0">Detalhes do Pedido</h5>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="idPessoa">ID Pessoa</label>
+              <input [(ngModel)]="pedido.idPessoa" class="form-control shadow-sm" name="idPessoa">
+            </div>
+            <div class="form-group">
+              <label for="idCamisa">ID Camisa</label>
+              <input [(ngModel)]="pedido.idCamisa" class="form-control shadow-sm" name="idCamisa">
+            </div>
+            <div class="form-group">
+              <label for="idEndereco">ID Endereço</label>
+              <input [(ngModel)]="pedido.idEndereco" class="form-control shadow-sm" name="idEndereco">
+            </div>
+            <div class="form-group">
+              <label for="total">Total</label>
+              <input [(ngModel)]="pedido.total" class="form-control shadow-sm" name="total">
+            </div>
+            <div class="form-group">
+              <label for="status">Status do Pedido</label>
+              <input [(ngModel)]="pedido.status" class="form-control shadow-sm" name="status">
+            </div>
+            <div class="form-group">
+              <label for="quantidade">Quantidade</label>
+              <input [(ngModel)]="pedido.quantidade" class="form-control shadow-sm" name="quantidade">
+            </div>
+            <br>
+            <div class="form-group">
+              <button type="button" class="btn btn-warning btn-block rounded-0 shadow-sm" (click)="voltar()">Voltar</button>
+            </div>
+            <div class="form-group">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-      <label for="idEndereco" class="form-label">ID Endereço:</label>
-      <select class="form-control" name="endereco">
-
-
-
-      </select>
-    </div>
-    <div class="mb-3">
-      <label for="total" class="form-label">Total:</label>
-      <input type="number" step="0.01" class="form-control" id="total" name="total" required>
-    </div>
-    <div class="mb-3">
-      <label for="status" class="form-label">Status:</label>
-      <input type="text" class="form-control" id="status" name="status" required>
-    </div>
-    <div class="mb-3">
-      <label for="quantidade" class="form-label">Quantidade:</label>
-      <input type="number" step="0.01" class="form-control" id="quantidade" name="quantidade" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Cadastrar Pedido</button>
-  </form>
+  </div>
 </div>

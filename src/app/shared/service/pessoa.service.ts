@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Pessoa } from '../model/pessoa';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { PessoaSeletor } from '../model/seletor/produto.seletor';
+import { PessoaSeletor } from '../model/seletor/pessoa.seletor';
 import { Endereco } from '../model/endereco';
 
 @Injectable({
@@ -15,11 +15,11 @@ export class PessoaService {
   constructor(private httpClient: HttpClient) { }
 
 
-  listarTodos(): Observable<Array<Pessoa>> {//com retorno EXPLÍCITO(Observable<Array<Produto>>)
+  listarTodos(): Observable<Array<Pessoa>> {
     return this.httpClient.get<Array<Pessoa>>(this.API);
   }
 
-  listarComSeletor(seletor: PessoaSeletor){ //com retorno IMPLÍCITO
+  listarComSeletor(seletor: PessoaSeletor){
     return this.httpClient.post<Array<Pessoa>>(this.API + "/filtro", seletor);
   }
 

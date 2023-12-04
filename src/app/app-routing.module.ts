@@ -5,7 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {path: "listagem", redirectTo: "pessoa/lista", pathMatch: "full"},
   {path: "cadastro", redirectTo: "pessoa/cadastrar", pathMatch: "full"},
-  {path: "lista", redirectTo: "pedido/lista", pathMatch: "full"},
+  {path: "listagem", redirectTo: "pedido/lista", pathMatch: "full"},
+  {path: "cadastro", redirectTo: "pedido/cadastrar", pathMatch: "full"},
+
 
 
   {
