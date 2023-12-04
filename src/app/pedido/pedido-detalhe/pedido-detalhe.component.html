@@ -8,17 +8,59 @@
           </div>
           <div class="card-body">
             <div class="form-group">
-              <label for="idPessoa">ID Pessoa</label>
-              <input [(ngModel)]="pedido.idPessoa" class="form-control shadow-sm" name="idPessoa">
+              <div class="form-group col-md-6">
+                <label for="idCliente">Cliente</label>
+                <select class="form-control" name="fabricanteDoProduto"
+                        [ngModelOptions]="{standalone: true}"
+                        aria-label="Selecione um usuário"
+                        [compareWith]="compareById"
+                        [(ngModel)]="pedido.idPessoa" required>
+                    <option *ngFor="let pessoa of pessoa"
+                            [ngValue]="pessoa">{{pessoa.nome}}</option>
+                </select>
             </div>
-            <div class="form-group">
-              <label for="idCamisa">ID Camisa</label>
-              <input [(ngModel)]="pedido.idCamisa" class="form-control shadow-sm" name="idCamisa">
             </div>
-            <div class="form-group">
-              <label for="idEndereco">ID Endereço</label>
-              <input [(ngModel)]="pedido.idEndereco" class="form-control shadow-sm" name="idEndereco">
-            </div>
+
+
+                    <div class="card-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="tamanho">Tamanho</label>
+                          <input type="text" class="form-control" id="tamanho" name="tamanho" maxlength="4" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="cor">Cor</label>
+                          <input type="text" class="form-control" id="cor" name="cor" maxlength="20" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="estampa">Estampa</label>
+                          <input type="file" class="form-control-file" id="estampa" name="estampa" required>
+                        </div>
+                        <!--
+                        <div class="form-group">
+                          <label for="idModelo">Modelo</label>
+                          <select class="form-control" name="idModelo"
+                            [ngModelOptions]="{standalone: true}"
+                            aria-label="Selecione um modelo"
+                            [compareWith]="compareById"
+                              [(ngModel)]="pedido.idCamisa" required>
+                            <option *ngFor="let camisa of camisa"
+                            [ngValue]="camisa">{{camisa.estampa}}</option>
+                            Configurações, importações, scripts, etc.
+                </select>
+                        </div>
+                        -->
+                        <div class="form-group">
+                          <label for="nomeArquivo">Nome do Arquivo</label>
+                          <input type="text" class="form-control" id="nomeArquivo" name="nomeArquivo" maxlength="30" required>
+                        </div>
+                      </form>
+                    </div>
+
+
+
+
+
             <div class="form-group">
               <label for="total">Total</label>
               <input [(ngModel)]="pedido.total" class="form-control shadow-sm" name="total">

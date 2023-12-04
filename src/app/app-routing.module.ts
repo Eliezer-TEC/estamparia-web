@@ -7,6 +7,9 @@ const routes: Routes = [
   {path: "cadastro", redirectTo: "pessoa/cadastrar", pathMatch: "full"},
   {path: "listagem", redirectTo: "pedido/lista", pathMatch: "full"},
   {path: "cadastro", redirectTo: "pedido/cadastrar", pathMatch: "full"},
+  {path: "modelo", redirectTo: "modelo/cadastrar", pathMatch: "full"},
+  {path: "modelo", redirectTo: "modelo/lista", pathMatch: "full"},
+
 
 
 
@@ -19,6 +22,12 @@ const routes: Routes = [
     {
       path: 'pedido',
     loadChildren:() => import('./pedido/pedido.module').then(m => m.PedidoModule)
+
+    },
+
+    {
+      path: 'modelo',
+    loadChildren:() => import('./modelo/modelo.module').then(m => m.ModeloModule)
 
     }
 ];

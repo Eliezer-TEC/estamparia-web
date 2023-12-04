@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Camisa } from 'src/app/shared/model/camisa';
+import { Modelo } from 'src/app/shared/model/modelo';
 import { Pedido } from 'src/app/shared/model/pedido';
+import { Pessoa } from 'src/app/shared/model/pessoa';
 import { PedidoService } from 'src/app/shared/service/pedido.service';
 import Swal from 'sweetalert2';
 
@@ -13,6 +16,9 @@ import Swal from 'sweetalert2';
 export class PedidoDetalheComponent {
   public idPedido: number;
   public pedido: Pedido = new Pedido();
+  public pessoa: Pessoa[] = [];
+  public camisa: Camisa[] = [];
+  public modelo: Modelo[] = [];
 
   constructor(
     private pedidoService: PedidoService,
@@ -82,5 +88,8 @@ export class PedidoDetalheComponent {
 
   public voltar() {
     this.router.navigate(['/pedido']);
+  }
+  public compareById(r1: any, r2: any): boolean {
+    return r1 && r2 ? r1.id === r2.id : r1 === r2;
   }
 }
