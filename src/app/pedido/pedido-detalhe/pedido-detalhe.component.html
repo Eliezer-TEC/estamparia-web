@@ -26,16 +26,29 @@
                       <form>
                         <div class="form-group">
                           <label for="tamanho">Tamanho</label>
-                          <input type="text" class="form-control" id="tamanho" name="tamanho" maxlength="4" required>
+                          <select [(ngModel)]="camisa.tamanho" class="form-control shadow-sm" name="tamanho" required>
+                            <option value="PP">PP</option>
+                            <option value="P">P</option>
+                            <option value="M">M</option>
+                            <option value="G">G</option>
+                            <option value="GG">GG</option>
+                          </select>
                         </div>
                         <div class="form-group">
                           <label for="cor">Cor</label>
-                          <input type="text" class="form-control" id="cor" name="cor" maxlength="20" required>
+                          <select [(ngModel)]="camisa.cor" class="form-control shadow-sm" name="cor" required>
+                            <option value="Preto">Preto</option>
+                            <option value="Branco">Branco</option>
+                            <option value="Vermelho">Vermelho</option>
+                            <option value="Azul">Azul</option>
+                            <option value="Verde">Verde</option>
+                          </select>
                         </div>
                         <div class="form-group">
                           <label for="estampa">Estampa</label>
                           <input type="file" class="form-control-file" id="estampa" name="estampa" required>
                         </div>
+
                         <!--
                         <div class="form-group">
                           <label for="idModelo">Modelo</label>
@@ -50,6 +63,8 @@
                 </select>
                         </div>
                         -->
+
+
                         <div class="form-group">
                           <label for="nomeArquivo">Nome do Arquivo</label>
                           <input type="text" class="form-control" id="nomeArquivo" name="nomeArquivo" maxlength="30" required>
@@ -67,7 +82,11 @@
             </div>
             <div class="form-group">
               <label for="status">Status do Pedido</label>
-              <input [(ngModel)]="pedido.status" class="form-control shadow-sm" name="status">
+              <select [(ngModel)]="pedido.status" class="form-control shadow-sm" name="status" required>
+                <option value="1">PEDIDO REALIZADO</option>
+                <option value="2">PREPARANDO PEDIDO</option>
+                <option value="3">PEDIDO ENTREGUE</option>
+              </select>
             </div>
             <div class="form-group">
               <label for="quantidade">Quantidade</label>

@@ -38,10 +38,12 @@ export class PessoaDetalheComponent {
         this.enderecos = resultado;
       },
       (erro: any) => {
-        console.log('Erro ao buscar Clientes', erro);
+        console.log('Erro ao buscar Endereço', erro);
       }
     );
   }
+
+
   buscarUsuario() {
     this.pessoaService.pesquisarPorId(this.pessoa.id).subscribe(
       (resultado) => {

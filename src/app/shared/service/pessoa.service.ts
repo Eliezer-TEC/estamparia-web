@@ -28,9 +28,7 @@ export class PessoaService {
     return this.httpClient.post<Pessoa>(this.API, pessoa);
   }
 
-  salvarEndereco(endereco : Endereco): Observable<Endereco>{
-    return this.httpClient.post<Endereco> (this.APIe, endereco);
-  }
+
 
   atualizar(pessoa: Pessoa): Observable<Pessoa> {
     return this.httpClient.put<Pessoa>(this.API, pessoa);

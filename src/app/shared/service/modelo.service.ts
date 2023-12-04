@@ -16,11 +16,15 @@ export class ModeloService {
     return this.httpClient.get<Modelo>(`${this.API}/${id}`);
   }
 
-  atualizar(Modelo: Modelo): Observable<Modelo> {
+  atualizar(modelo: Modelo): Observable<Modelo> {
     return this.httpClient.put<Modelo>(this.API, Modelo);
   }
 
-  salvar(pessoa: Modelo): Observable<Modelo> {
+  salvar(modelo: Modelo): Observable<Modelo> {
     return this.httpClient.post<Modelo>(this.API, Modelo);
   }
+  excluir(id: number): Observable<Modelo> {
+    return this.httpClient.delete<Modelo>(this.API + '/' + id);
+  }
+
 }

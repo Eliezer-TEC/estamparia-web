@@ -17,8 +17,9 @@ export class PedidoDetalheComponent {
   public idPedido: number;
   public pedido: Pedido = new Pedido();
   public pessoa: Pessoa[] = [];
-  public camisa: Camisa[] = [];
+  public camisa: Camisa = new Camisa();
   public modelo: Modelo[] = [];
+
 
   constructor(
     private pedidoService: PedidoService,
