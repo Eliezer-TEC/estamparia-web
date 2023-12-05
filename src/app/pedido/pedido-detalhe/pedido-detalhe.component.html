@@ -1,37 +1,106 @@
-<div class="container mt-5">
-  <h2>Cadastro de Pedidos</h2>
-  <form>
+<div class="bg-light min-vh-100">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card border-dark">
+          <div class="card-header bg-dark text-white">
+            <h5 class="m-0">Detalhes do Pedido</h5>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <div class="form-group col-md-6">
+                <label for="idCliente">Cliente</label>
+                <select class="form-control" name="fabricanteDoProduto"
+                        [ngModelOptions]="{standalone: true}"
+                        aria-label="Selecione um usuário"
+                        [compareWith]="compareById"
+                        [(ngModel)]="pedido.idPessoa" required>
+                    <option *ngFor="let pessoa of pessoa"
+                            [ngValue]="pessoa">{{pessoa.nome}}</option>
+                </select>
+            </div>
+            </div>
 
-    <div class="mb-3">
-      <label for="idCamisa" class="form-label">ID Camisa:</label>
-      <select class="form-control" name="camisa">
+
+                    <div class="card-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="tamanho">Tamanho</label>
+                          <select [(ngModel)]="camisa.tamanho" class="form-control shadow-sm" name="tamanho" required>
+                            <option value="PP">PP</option>
+                            <option value="P">P</option>
+                            <option value="M">M</option>
+                            <option value="G">G</option>
+                            <option value="GG">GG</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="cor">Cor</label>
+                          <select [(ngModel)]="camisa.cor" class="form-control shadow-sm" name="cor" required>
+                            <option value="Preto">Preto</option>
+                            <option value="Branco">Branco</option>
+                            <option value="Vermelho">Vermelho</option>
+                            <option value="Azul">Azul</option>
+                            <option value="Verde">Verde</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="estampa">Estampa</label>
+                          <input type="file" class="form-control-file" id="estampa" name="estampa" required>
+                        </div>
+
+                        <!--
+                        <div class="form-group">
+                          <label for="idModelo">Modelo</label>
+                          <select class="form-control" name="idModelo"
+                            [ngModelOptions]="{standalone: true}"
+                            aria-label="Selecione um modelo"
+                            [compareWith]="compareById"
+                              [(ngModel)]="pedido.idCamisa" required>
+                            <option *ngFor="let camisa of camisa"
+                            [ngValue]="camisa">{{camisa.estampa}}</option>
+                            Configurações, importações, scripts, etc.
+                </select>
+                        </div>
+                        -->
+
+
+                        <div class="form-group">
+                          <label for="nomeArquivo">Nome do Arquivo</label>
+                          <input type="text" class="form-control" id="nomeArquivo" name="nomeArquivo" maxlength="30" required>
+                        </div>
+                      </form>
+                    </div>
 
 
 
-      </select>
 
 
+            <div class="form-group">
+              <label for="total">Total</label>
+              <input [(ngModel)]="pedido.total" class="form-control shadow-sm" name="total">
+            </div>
+            <div class="form-group">
+              <label for="status">Status do Pedido</label>
+              <select [(ngModel)]="pedido.status" class="form-control shadow-sm" name="status" required>
+                <option value="1">PEDIDO REALIZADO</option>
+                <option value="2">PREPARANDO PEDIDO</option>
+                <option value="3">PEDIDO ENTREGUE</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="quantidade">Quantidade</label>
+              <input [(ngModel)]="pedido.quantidade" class="form-control shadow-sm" name="quantidade">
+            </div>
+            <br>
+            <div class="form-group">
+              <button type="button" class="btn btn-warning btn-block rounded-0 shadow-sm" (click)="voltar()">Voltar</button>
+            </div>
+            <div class="form-group">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-      <label for="idEndereco" class="form-label">ID Endereço:</label>
-      <select class="form-control" name="endereco">
-
-
-
-      </select>
-    </div>
-    <div class="mb-3">
-      <label for="total" class="form-label">Total:</label>
-      <input type="number" step="0.01" class="form-control" id="total" name="total" required>
-    </div>
-    <div class="mb-3">
-      <label for="status" class="form-label">Status:</label>
-      <input type="text" class="form-control" id="status" name="status" required>
-    </div>
-    <div class="mb-3">
-      <label for="quantidade" class="form-label">Quantidade:</label>
-      <input type="number" step="0.01" class="form-control" id="quantidade" name="quantidade" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Cadastrar Pedido</button>
-  </form>
+  </div>
 </div>

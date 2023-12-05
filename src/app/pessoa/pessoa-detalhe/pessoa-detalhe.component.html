@@ -1,48 +1,147 @@
+<div class="bg-light min-vh-100">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card border-dark">
+          <div class="card-header bg-dark text-white">
+            <h5 class="m-0">Cadastro</h5>
+          </div>
+          <div class="card-body">
+            <form #ngForm="ngForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input [(ngModel)]="pessoa.nome" class="form-control shadow-sm" minlength="3" name="nome" required>
+                    <div *ngIf="((!pessoa.nome || (pessoa.nome && pessoa.nome.length < 3)) && ngForm.submitted)"
+                      class="invalid-feedback">Informe um nome com no mínimo 3 caracteres.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input [(ngModel)]="pessoa.email" class="form-control shadow-sm" type="email" name="email" required>
+                    <div *ngIf="!pessoa.email && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input [(ngModel)]="pessoa.cpf" class="form-control shadow-sm" minlength="11" name="cpf" required>
+                    <div *ngIf="((!pessoa.cpf || (pessoa.cpf && pessoa.cpf.length != 11)) && ngForm.submitted)"
+                      class="invalid-feedback">Informe um CPF válido</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input [(ngModel)]="pessoa.senha" class="form-control shadow-sm" type="password" name="senha" required>
+                    <div *ngIf="!pessoa.senha && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <div class="input-group">
+                      <input [(ngModel)]="pessoa.ddd" class="form-control shadow-sm" minlength="2" maxlength="2" name="ddd" required>
 
-<div class="container mt-5">
-  <h1>Cadastro de Usuário</h1>
-  <form>
-      <div class="mb-3">
-          <label for="nome" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="nome" required>
-
-
+                      <input [(ngModel)]="pessoa.telefone" class="form-control shadow-sm" minlength="9" name="telefone" required>
+                    </div>
+                    <div *ngIf="((!pessoa.telefone || (pessoa.telefone && pessoa.telefone.length < 9)) && ngForm.submitted)"
+                      class="invalid-feedback">Insira um telefone válido</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="dataNascimento">Data de Nascimento</label>
+                    <input class="form-control shadow-sm" type="date" name="dataNascimento" [(ngModel)]="pessoa.dtNasc" required>
+                    <div *ngIf="!pessoa.dtNasc && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="cep">CEP</label>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco" name="cep" required>
+                    <div *ngIf="!pessoa.idEndereco && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="numeroCasa">Número da Casa</label>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco.numero" name="numeroCasa" required>
+                    <div *ngIf="!pessoa.idEndereco.numero && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="rua">Rua</label>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco.rua" name="rua" required>
+                    <div *ngIf="!pessoa.idEndereco.rua && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco.bairro" name="bairro" required>
+                    <div *ngIf="!pessoa.idEndereco.bairro && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="cidade">Cidade</label>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco.cidade" name="cidade" required>
+                    <div *ngIf="!pessoa.idEndereco.cidade && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco.estado" name="estado" required>
+                    <div *ngIf="!pessoa.idEndereco.estado && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for ="funcionario">Funcionário</label>
+                    <select class="form-control shadow-sm" [(ngModel)]="pessoa.funcionario" name="funcionario" required>
+                      <option value="sim">Sim</option>
+                      <option value="nao">Não</option>
+                    </select>
+                    <div *ngIf="!pessoa.funcionario && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <br>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-warning btn-block rounded-0 shadow-sm" (click)="voltar()">Voltar</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <br>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-success btn-block rounded-0 shadow-sm" (click)="cadastrar(ngForm)">Cadastrar</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="mb-3">
-          <label for="cpf" class="form-label">CPF</label>
-          <input type="text" class="form-control" id="cpf" required>
-      </div>
-      <div class="mb-3">
-          <label for="dtNasc" class="form-label">Data de Nascimento</label>
-          <input type="date" class="form-control" id="dtNasc" required>
-      </div>
-      <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" required>
-      </div>
-      <div class="mb-3">
-          <label for="ddd" class="form-label">DDD</label>
-          <input type="text" class="form-control" id="ddd" required>
-      </div>
-      <div class="mb-3">
-          <label for="telefone" class="form-label">Telefone</label>
-          <input type="text" class="form-control" id="telefone" required>
-      </div>
-      <div class="mb-3">
-          <label for="senha" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="senha" required>
-      </div>
-      <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="funcionario">
-          <label class="form-check-label" for="funcionario">Funcionário</label>
-      </div>
-      <button class="btn btn-xs btn-secondary mr-12"
-      (click)="enderecoCadastrar()">Cadastrar Endereço
-      </button>
-        &nbsp;
-      <br>
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
-  </form>
+    </div>
+  </div>
 </div>
-
 

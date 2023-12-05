@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pessoa } from 'src/app/shared/model/pessoa';
-import { PessoaSeletor } from 'src/app/shared/model/seletor/produto.seletor';
+import { PessoaSeletor } from 'src/app/shared/model/seletor/pessoa.seletor';
 import { PessoaService } from '../../shared/service/pessoa.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -27,7 +27,7 @@ pesquisar(){
       this.pessoa = resultado;
     },
     erro => {
-      console.log('ERro ao buscar produtos', erro)
+      console.log('Erro ao buscar produtos', erro)
     }
   );
 }
