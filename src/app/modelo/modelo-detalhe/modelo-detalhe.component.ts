@@ -59,23 +59,27 @@ constructor(
   inserirModelo() {
     this.modeloService.salvar(this.modelo).subscribe(
       () => {
-        Swal.fire('Sucesso', 'Pedido salvo com sucesso', 'success');
+        Swal.fire('Sucesso', 'Modelo salvo com sucesso', 'success');
         this.modelo = new Modelo();
       },
       (erro) => {
-        Swal.fire('Erro', 'Não foi possível salvar o pedido: ' + erro, 'error');
+        Swal.fire('Erro', 'Não foi possível salvar o modelo: ' + erro, 'error');
       }
     );
   }
   atualizarModelo() {
     this.modeloService.atualizar(this.modelo).subscribe(
       () => {
-        Swal.fire('Sucesso', 'Pedido atualizado com sucesso', 'success');
+        Swal.fire('Sucesso', 'Modelo atualizado com sucesso', 'success');
       },
       (erro) => {
-        Swal.fire('Erro', 'Não foi possível atualizar o pedido: ' + erro, 'error');
+        Swal.fire('Erro', 'Não foi possível modelo o pedido: ' + erro, 'error');
       }
     );
+  }
+
+  public voltar() {
+    this.router.navigate(['/modelo']);
   }
 }
 

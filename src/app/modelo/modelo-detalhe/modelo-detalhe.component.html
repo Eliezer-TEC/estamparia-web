@@ -7,6 +7,7 @@
             <h5 class="m-0">Cadastro de Modelo</h5>
           </div>
           <div class="card-body">
+            <form #ngForm="ngForm">
               <div class="form-group">
                 <label for="valorVenda">Valor de Venda</label>
                 <input [(ngModel)]="modelo.valorVenda" class="form-control shadow-sm" name="valorVenda" required>
@@ -26,7 +27,21 @@
 
               <div class="form-group">
               </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <br>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-warning btn-block rounded-0 shadow-sm" (click)="voltar()">Voltar</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <br>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-success btn-block rounded-0 shadow-sm" (click)="salvar(ngForm)">Cadastrar</button>
+                  </div>
+                </div>
           </div>
+        </form>
         </div>
       </div>
     </div>
