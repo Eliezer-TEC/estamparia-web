@@ -67,15 +67,15 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="cep">CEP</label>
-                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco" name="cep" required>
-                    <div *ngIf="!pessoa.idEndereco && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.endereco" name="cep" required>
+                    <div *ngIf="!pessoa.endereco && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="numeroCasa">Número da Casa</label>
-                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco.numero" name="numeroCasa" required>
-                    <div *ngIf="!pessoa.idEndereco.numero && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.endereco.numero" name="numeroCasa" required>
+                    <div *ngIf="!pessoa.endereco.numero && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
                   </div>
                 </div>
               </div>
@@ -83,15 +83,15 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="rua">Rua</label>
-                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco.rua" name="rua" required>
-                    <div *ngIf="!pessoa.idEndereco.rua && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.endereco.rua" name="rua" required>
+                    <div *ngIf="!pessoa.endereco.rua && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="bairro">Bairro</label>
-                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco.bairro" name="bairro" required>
-                    <div *ngIf="!pessoa.idEndereco.bairro && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.endereco.bairro" name="bairro" required>
+                    <div *ngIf="!pessoa.endereco.bairro && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
                   </div>
                 </div>
               </div>
@@ -99,15 +99,15 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="cidade">Cidade</label>
-                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco.cidade" name="cidade" required>
-                    <div *ngIf="!pessoa.idEndereco.cidade && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.endereco.cidade" name="cidade" required>
+                    <div *ngIf="!pessoa.endereco.cidade && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="estado">Estado</label>
-                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.idEndereco.estado" name="estado" required>
-                    <div *ngIf="!pessoa.idEndereco.estado && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
+                    <input class="form-control shadow-sm" [(ngModel)]="pessoa.endereco.estado" name="estado" required>
+                    <div *ngIf="!pessoa.endereco.estado && ngForm.submitted" class="invalid-feedback">Campo obrigatório</div>
                   </div>
                 </div>
               </div>

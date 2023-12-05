@@ -11,12 +11,11 @@ import { Endereco } from '../model/endereco';
 export class PessoaService {
 
   private readonly API = 'http://localhost:8080/api/pessoa';
-  private readonly APIe = 'http://localhost:8080/api/endereco';
   constructor(private httpClient: HttpClient) { }
 
 
   listarTodos(): Observable<Array<Pessoa>> {
-    return this.httpClient.get<Array<Pessoa>>(this.API);
+    return this.httpClient.get<Array<Pessoa>>(this.API + "/todos");
   }
 
   listarComSeletor(seletor: PessoaSeletor){
@@ -25,7 +24,7 @@ export class PessoaService {
 
 
   salvar(pessoa: Pessoa): Observable<Pessoa> {
-    return this.httpClient.post<Pessoa>(this.API, pessoa);
+    return this.httpClient.post<Pessoa>(this.API + "/cadastrar", pessoa);
   }
 
 

@@ -36,7 +36,7 @@ export class ModeloDetalheComponent {
     );
   }
 
-  public salvar(form: NgForm) {
+  public cadastrar(form: NgForm) {
     if (form.invalid) {
       Swal.fire('Erro', 'Formulário inválido', 'error');
       return;
@@ -69,9 +69,8 @@ export class ModeloDetalheComponent {
       }
     );
   }
-
   public voltar() {
-    this.router.navigate(['']);
+    this.router.navigate(['/pedido']);
   }
 }
 

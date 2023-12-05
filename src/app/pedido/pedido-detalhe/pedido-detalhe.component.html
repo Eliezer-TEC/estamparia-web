@@ -7,6 +7,7 @@
             <h5 class="m-0">Detalhes do Pedido</h5>
           </div>
           <div class="card-body">
+            <form #ngForm="ngForm">
             <div class="form-group">
               <div class="form-group col-md-6">
                 <label for="idCliente">Cliente</label>
@@ -15,8 +16,8 @@
                         aria-label="Selecione um usuário"
                         [compareWith]="compareById"
                         [(ngModel)]="pedido.idPessoa" required>
-                    <option *ngFor="let pessoa of pessoa"
-                            [ngValue]="pessoa">{{pessoa.nome}}</option>
+                    <option *ngFor="let pessoa of pessoas"
+                            [ngValue]="pessoa.id">{{pessoa.nome}}</option>
                 </select>
             </div>
             </div>
@@ -46,23 +47,27 @@
                         </div>
                         <div class="form-group">
                           <label for="estampa">Estampa</label>
-                          <input type="file" class="form-control-file" id="estampa" name="estampa" required>
+                          <input type="file" class="form-control-file" id="estampa" name="estampa" [(ngModel)]="file" required>
                         </div>
 
-                        <!--
+                        <div>
+                           <img href="C:\Users\eliezer.silva1\git\estamparia\estampas\Vilmarzin.png">
+                          <!-- <pre>{{file}}</pre> -->
+                        </div>
+
+
                         <div class="form-group">
                           <label for="idModelo">Modelo</label>
                           <select class="form-control" name="idModelo"
                             [ngModelOptions]="{standalone: true}"
                             aria-label="Selecione um modelo"
                             [compareWith]="compareById"
-                              [(ngModel)]="pedido.idCamisa" required>
-                            <option *ngFor="let camisa of camisa"
-                            [ngValue]="camisa">{{camisa.estampa}}</option>
-                            Configurações, importações, scripts, etc.
+                              [(ngModel)]="camisa.idModelo" required>
+                            <option *ngFor="let modelo of modelos"
+                            [ngValue]="modelo">{{modelo.nome}}</option>
                 </select>
                         </div>
-                        -->
+
 
 
                         <div class="form-group">
@@ -93,11 +98,21 @@
               <input [(ngModel)]="pedido.quantidade" class="form-control shadow-sm" name="quantidade">
             </div>
             <br>
-            <div class="form-group">
-              <button type="button" class="btn btn-warning btn-block rounded-0 shadow-sm" (click)="voltar()">Voltar</button>
+            <div class="row">
+              <div class="col-md-6">
+                <br>
+                <div class="form-group">
+                  <button type="button" class="btn btn-warning btn-block rounded-0 shadow-sm" (click)="voltar()">Voltar</button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <br>
+                <div class="form-group">
+                  <button type="button" class="btn btn-success btn-block rounded-0 shadow-sm" (click)="salvar(ngForm)">Cadastrar</button>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-            </div>
+          </form>
           </div>
         </div>
       </div>
