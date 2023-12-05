@@ -7,7 +7,9 @@ const routes: Routes = [
 
   {path: 'detalhe/:id', component: PessoaDetalheComponent},
   {path: 'detalhe', component: PessoaDetalheComponent},
-  {path: 'lista', component: PessoaListagemComponent}
+  {path: 'lista', component: PessoaListagemComponent},
+  {path: 'lista/:nome', component: PessoaListagemComponent},
+  {path: 'lista/funcionario', component: PessoaListagemComponent}
 
 ];
 

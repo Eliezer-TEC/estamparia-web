@@ -11,24 +11,16 @@ import Swal from 'sweetalert2';
   styleUrls: ['./modelo-detalhe.component.scss']
 })
 export class ModeloDetalheComponent {
-[x: string]: any;
+  [x: string]: any;
   public idModelo: number;
   public modelo: Modelo = new Modelo();
 
-constructor(
+  constructor(
     private modeloService: ModeloService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
-  ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.idModelo = params['id'];
-      if (this.idModelo) {
-        this.buscarModelo();
-      }
-    });
-  }
   buscarModelo() {
     this.modeloService.buscarPorId(this.idModelo).subscribe(
       (resultado) => {
@@ -79,7 +71,7 @@ constructor(
   }
 
   public voltar() {
-    this.router.navigate(['/modelo']);
+    this.router.navigate(['']);
   }
 }
 

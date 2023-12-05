@@ -98,6 +98,6 @@ export class PessoaDetalheComponent {
   }
 
   public voltar() {
-    this.router.navigate(['/pessoa']);
+    this.router.navigate(['']);
   }
 }

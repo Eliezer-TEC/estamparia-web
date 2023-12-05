@@ -16,15 +16,15 @@ export class ModeloService {
     return this.httpClient.get<Modelo>(`${this.API}/${id}`);
   }
 
-  atualizar(modelo: Modelo): Observable<Modelo> {
-    return this.httpClient.put<Modelo>(this.API, Modelo);
+  atualizar(modeloParaAtualizar: Modelo): Observable<Modelo> {
+    return this.httpClient.put<Modelo>(this.API, modeloParaAtualizar);
   }
 
-  salvar(modelo: Modelo): Observable<Modelo> {
-    return this.httpClient.post<Modelo>(this.API, Modelo);
+  salvar(novoModelo: Modelo): Observable<Modelo> {
+    return this.httpClient.post<Modelo>(this.API + '/cadastrar', novoModelo); // NO CORPO DO JSON
   }
   excluir(id: number): Observable<Modelo> {
-    return this.httpClient.delete<Modelo>(this.API + '/' + id);
+    return this.httpClient.delete<Modelo>(this.API + '/' + id);  //NA PRÓPRIA URL
   }
 
 }
