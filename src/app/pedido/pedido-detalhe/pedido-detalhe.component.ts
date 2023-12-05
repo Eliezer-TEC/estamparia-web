@@ -6,6 +6,7 @@ import { Modelo } from 'src/app/shared/model/modelo';
 import { Pedido } from 'src/app/shared/model/pedido';
 import { Pessoa } from 'src/app/shared/model/pessoa';
 import { PedidoService } from 'src/app/shared/service/pedido.service';
+import { PessoaService } from 'src/app/shared/service/pessoa.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,14 +16,17 @@ import Swal from 'sweetalert2';
 })
 export class PedidoDetalheComponent {
   public idPedido: number;
+  public modelo = Modelo;
   public pedido: Pedido = new Pedido();
-  public pessoa: Pessoa[] = [];
+  public pessoas: Pessoa[] = [];
   public camisa: Camisa = new Camisa();
-  public modelo: Modelo[] = [];
+  public modelos: Modelo[] = [];
+  public file: any;
 
 
   constructor(
     private pedidoService: PedidoService,
+    private pessoaService: PessoaService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -34,6 +38,19 @@ export class PedidoDetalheComponent {
         this.buscarPedido();
       }
     });
+
+    this.buscarPessoas();
+  }
+
+  buscarPessoas(){
+    this.pessoaService.listarTodos().subscribe(
+      (resultado) => {
+        this.pessoas = resultado;
+      },
+      (erro) => {
+        Swal.fire('Erro','Erro ao buscar todas as pessoas');
+      }
+    );
   }
 
   buscarPedido() {

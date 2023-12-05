@@ -44,7 +44,7 @@ constructor(
     );
   }
 
-  public salvar(form: NgForm) {
+  public cadastrar(form: NgForm) {
     if (form.invalid) {
       Swal.fire('Erro', 'Formulário inválido', 'error');
       return;
@@ -76,6 +76,9 @@ constructor(
         Swal.fire('Erro', 'Não foi possível atualizar o pedido: ' + erro, 'error');
       }
     );
+  }
+  public voltar() {
+    this.router.navigate(['/pedido']);
   }
 }
 

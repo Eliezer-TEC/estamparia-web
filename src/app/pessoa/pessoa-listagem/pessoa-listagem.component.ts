@@ -27,7 +27,7 @@ pesquisar(){
       this.pessoa = resultado;
     },
     erro => {
-      console.log('Erro ao buscar produtos', erro)
+      console.log('Erro ao buscar usuários', erro)
     }
   );
 }
@@ -48,7 +48,7 @@ buscarPessoa(){
       this.pessoa = resultado;
     },
     erro => {
-      console.log('Erro ao buscar produtos', erro);
+      console.log('Erro ao buscar usuário', erro);
     }
   );
 }
@@ -57,18 +57,18 @@ excluir(id: number){
 
   Swal.fire({
     title: 'Você tem certeza disso?',
-    text: "Deseja excluir o produto #" + id + "?",
+    text: "Deseja excluir o usuário #" + id + "?",
     icon: 'warning',
     showCancelButton: true,
   }).then((retorno) => {
     if(retorno.isConfirmed){
        this.pessoaService.excluir(id).subscribe(
          sucesso => {
-           Swal.fire("Sucesso", "Produto excluído com sucesso!", 'success');
+           Swal.fire("Sucesso", "Usuário excluído com sucesso!", 'success');
            this.buscarPessoa(); //Atualiza a listagem
          },
          erro => {
-           Swal.fire("Erro", "Erro ao excluir o produto: " + erro, 'error');
+           Swal.fire("Erro", "Erro ao excluir o usuário: " + erro, 'error');
          }
        );
     }

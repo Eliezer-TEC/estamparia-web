@@ -1,9 +1,8 @@
 import {Endereco} from './endereco';
 
 export class Pessoa {
-
   id: number;
-  idEndereco: Endereco = new Endereco();
+  endereco: Endereco = new Endereco();
   nome: string;
   cpf: string;
   dtNasc: Date;
@@ -12,6 +11,4 @@ export class Pessoa {
   telefone: string;
   senha: string;
   funcionario: boolean;
-
-
 }
