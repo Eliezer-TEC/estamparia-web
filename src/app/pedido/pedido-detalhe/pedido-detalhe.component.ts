@@ -35,25 +35,25 @@ export class PedidoDetalheComponent {
     this.route.params.subscribe((params) => {
       this.idPedido = params['id'];
       if (this.idPedido) {
-        this.buscarPedido();
+        this.buscarPedidoId();
       }
     });
 
-    this.buscarPessoas();
+    this.buscarPedido();
   }
 
-  buscarPessoas(){
+  buscarPedido(){
     this.pessoaService.listarTodos().subscribe(
       (resultado) => {
         this.pessoas = resultado;
       },
       (erro) => {
-        Swal.fire('Erro','Erro ao buscar todas as pessoas');
+        Swal.fire('Erro','Erro ao buscar todos os pedidos');
       }
     );
   }
 
-  buscarPedido() {
+  buscarPedidoId() {
     this.pedidoService.buscarPorId(this.idPedido).subscribe(
       (resultado) => {
         this.pedido = resultado;
@@ -68,7 +68,7 @@ export class PedidoDetalheComponent {
     );
   }
 
-  public salvar(form: NgForm) {
+  public cadastrar(form: NgForm) {
     if (form.invalid) {
       Swal.fire('Erro', 'Formulário inválido', 'error');
       return;
@@ -105,7 +105,7 @@ export class PedidoDetalheComponent {
   }
 
   public voltar() {
-    this.router.navigate(['/pedido']);
+    this.router.navigate(['/']);
   }
   public compareById(r1: any, r2: any): boolean {
     return r1 && r2 ? r1.id === r2.id : r1 === r2;
