@@ -29,7 +29,7 @@ export class PessoaDetalheComponent {
     this.route.params.subscribe((params) => {
       this.idPessoa = params['id'];
       if (this.idPessoa) {
-        this.buscarUsuario();
+        this.buscarUsuarioPorId();
       }
     });
 
@@ -44,7 +44,8 @@ export class PessoaDetalheComponent {
   }
 
 
-  buscarUsuario() {
+
+  buscarUsuarioPorId() {
     this.pessoaService.pesquisarPorId(this.pessoa.id).subscribe(
       (resultado) => {
         this.pessoa = resultado;
