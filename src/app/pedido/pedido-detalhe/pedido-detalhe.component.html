@@ -1,5 +1,6 @@
 <div class="bg-light min-vh-100">
   <div class="container py-5">
+    <pre>{{pedido | json}}</pre>
     <div class="row">
       <div class="col-md-8 offset-md-2">
         <div class="card border-dark">
@@ -15,7 +16,7 @@
                         [ngModelOptions]="{standalone: true}"
                         aria-label="Selecione um usuário"
                         [compareWith]="compareById"
-                        [(ngModel)]="pedido.pessoa" required>
+                        [(ngModel)]="pedido.idPessoa" required>
                         <option *ngFor="let pessoa of pessoas"
                         [ngValue]="pessoa.id">{{pessoa.nome}}</option>
                 </select>
@@ -85,9 +86,9 @@
             <div class="form-group">
               <label for="status">Status do Pedido</label>
               <select [(ngModel)]="pedido.status" class="form-control shadow-sm" name="status" required>
-                <option value="1">PEDIDO REALIZADO</option>
-                <option value="2">PREPARANDO PEDIDO</option>
-                <option value="3">PEDIDO ENTREGUE</option>
+                <option value="PEDIDO_REALIZADO">PEDIDO REALIZADO</option>
+                <option value="PREPARANDO_PEDIDO">PREPARANDO PEDIDO</option>
+                <option value=">PEDIDO_ENTREGUE">PEDIDO ENTREGUE</option>
               </select>
             </div>
             <div class="form-group">

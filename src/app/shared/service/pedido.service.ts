@@ -27,7 +27,7 @@ export class PedidoService {
   }
 
   salvar(pedido: Pedido): Observable<Pedido> {
-    return this.httpClient.post<Pedido>(this.API, pedido);
+    return this.httpClient.post<Pedido>(this.API + "/cadastrar", pedido);
   }
 
   atualizar(pedido: Pedido): Observable<Pedido> {
