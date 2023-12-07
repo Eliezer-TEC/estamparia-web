@@ -70,11 +70,7 @@ export class ModeloDetalheComponent {
     );
   }
   public voltar() {
-<<<<<<< HEAD
-    this.router.navigate(['']);
-=======
     this.router.navigate(['/modelo/lista']);
->>>>>>> 64504a3f81825bdf53178bddb2f0e69ee9b45f4f
   }
 }
 
