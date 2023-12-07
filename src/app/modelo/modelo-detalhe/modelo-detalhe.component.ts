@@ -70,7 +70,7 @@ export class ModeloDetalheComponent {
     );
   }
   public voltar() {
-    this.router.navigate(['/pedido']);
+    this.router.navigate(['']);
   }
 }
 

@@ -47,7 +47,7 @@
                         </div>
                         <div class="form-group">
                           <label for="estampa">Estampa</label>
-                          <input [(ngModel)]="camisa.estampa" type="file"  class="form-control shadow-sm" name="estampa" required>
+                          <input type="file" class="form-control-file" id="estampa" name="estampa" [(ngModel)]="camisa.estampa" required>
                         </div>
 
 
@@ -69,7 +69,7 @@
 
                         <div class="form-group">
                           <label for="nomeArquivo">Nome do Arquivo</label>
-                          <input  [(ngModel)]="camisa.nomeArquivo" type="text" class="form-control" id="nomeArquivo" name="nomeArquivo" maxlength="30" required>
+                          <input type="text" class="form-control" id="nomeArquivo" name="nomeArquivo" maxlength="30" required>
                         </div>
                       </form>
                     </div>
