@@ -49,7 +49,7 @@
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-responsive">
+            <table class="table table-responsive" id="table-data">
               <thead>
                 <tr>
                   <th scope="col">Nome</th>
@@ -64,7 +64,7 @@
               <tbody>
 
                 <tr *ngFor="let p of pedido">
-                  <td>{{p.idPessoa.nome}}</td>
+                  <td>{{p.pessoa.nome}}</td>
                   <td>{{ p.total }}</td>
                   <td>{{ p.status }}</td>
                   <td>{{ p.quantidade }}</td>
@@ -76,6 +76,7 @@
                     <button class="btn btn-xs btn-danger"
                             (click)="excluir(p.id)">Excluir
                     </button>
+
                   </td>
                 </tr>
               </tbody>

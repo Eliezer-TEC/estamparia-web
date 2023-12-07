@@ -5,6 +5,7 @@ import { Camisa } from 'src/app/shared/model/camisa';
 import { Modelo } from 'src/app/shared/model/modelo';
 import { Pedido } from 'src/app/shared/model/pedido';
 import { Pessoa } from 'src/app/shared/model/pessoa';
+import { ModeloService } from 'src/app/shared/service/modelo.service';
 import { PedidoService } from 'src/app/shared/service/pedido.service';
 import { PessoaService } from 'src/app/shared/service/pessoa.service';
 import Swal from 'sweetalert2';
@@ -21,27 +22,51 @@ export class PedidoDetalheComponent {
   public pessoas: Pessoa[] = [];
   public camisa: Camisa = new Camisa();
   public modelos: Modelo[] = [];
-  public file: any;
 
 
   constructor(
     private pedidoService: PedidoService,
     private pessoaService: PessoaService,
+    private modeloService: ModeloService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
-  // buscando pedido na tela de cadastro
-  // ngOnInit(): void {
-  //   this.route.params.subscribe((params) => {
-  //     this.idPedido = params['id'];
-  //     if (this.idPedido) {
-  //       this.buscarPedidoId();
-  //     }
-  //   });
 
-  //   this.buscarPedido();
-  // }
+
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.idPedido = params['id'];
+      if (this.idPedido) {
+        this.buscarPedido();
+      }
+    });
+    this.buscarModelo();
+    this.buscarPessoas();
+  }
+
+  buscarModelo(){
+    this.modeloService.listarTodos().subscribe(
+      (resultado) => {
+        this.modelos = resultado;
+      },
+      (erro) => {
+        Swal.fire('Erro','Erro ao buscar todas as pessoas');
+      }
+    );
+  }
+
+
+  buscarPessoas(){
+    this.pessoaService.listarTodos().subscribe(
+      (resultado) => {
+        this.pessoas = resultado;
+      },
+      (erro) => {
+        Swal.fire('Erro','Erro ao buscar todas as pessoas');
+      }
+    );
+  }
 
   buscarPedido(){
     this.pessoaService.listarTodos().subscribe(
@@ -106,7 +131,7 @@ export class PedidoDetalheComponent {
   }
 
   public voltar() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/pedido/lista']);
   }
   public compareById(r1: any, r2: any): boolean {
     return r1 && r2 ? r1.id === r2.id : r1 === r2;
