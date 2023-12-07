@@ -26,7 +26,7 @@ pesquisar(){
       this.pedido = resultado;
     },
     erro => {
-      console.log('Erro ao buscar produtos', erro)
+      console.log('Erro ao buscar pedidos', erro)
     }
   );
 }
@@ -47,7 +47,7 @@ buscarPedido(){
       this.pedido = resultado;
     },
     erro => {
-      console.log('Erro ao buscar produtos', erro);
+      console.log('Erro ao buscar pedidos', erro);
     }
   );
 }
@@ -57,18 +57,18 @@ excluir(id: number){
 
   Swal.fire({
     title: 'Você tem certeza disso?',
-    text: "Deseja excluir o produto #" + id + "?",
+    text: "Deseja excluir o pedido #" + id + "?",
     icon: 'warning',
     showCancelButton: true,
   }).then((retorno) => {
     if(retorno.isConfirmed){
        this.pedidoService.excluir(id).subscribe(
          sucesso => {
-           Swal.fire("Sucesso", "Produto excluído com sucesso!", 'success');
+           Swal.fire("Sucesso", "Pedido excluído com sucesso!", 'success');
            this.buscarPedido(); //Atualiza a listagem
          },
          erro => {
-           Swal.fire("Erro", "Erro ao excluir o produto: " + erro, 'error');
+           Swal.fire("Erro", "Erro ao excluir o pedido: " + erro, 'error');
          }
        );
     }

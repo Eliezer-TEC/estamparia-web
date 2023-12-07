@@ -20,7 +20,6 @@ export class ModeloService {
   atualizar(modeloParaAtualizar: Modelo): Observable<Modelo> {
     return this.httpClient.put<Modelo>(this.API, modeloParaAtualizar);
   }
-
   salvar(novoModelo: Modelo): Observable<Modelo> {
     return this.httpClient.post<Modelo>(this.API + '/cadastrar', novoModelo); // NO CORPO DO JSON
   }

@@ -23,11 +23,11 @@ export class PedidoService {
 
 
   buscarPorId(id: number): Observable<Pedido> {
-    return this.httpClient.get<Pedido>(`${this.API}/${id}`);
+    return this.httpClient.get<Pedido>(this.API + '/' + id);
   }
 
   salvar(pedido: Pedido): Observable<Pedido> {
-    return this.httpClient.post<Pedido>(this.API, pedido);
+    return this.httpClient.post<Pedido>(this.API + "/cadastrar", pedido);
   }
 
   atualizar(pedido: Pedido): Observable<Pedido> {
