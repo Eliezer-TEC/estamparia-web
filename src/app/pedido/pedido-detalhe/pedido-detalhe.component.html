@@ -15,9 +15,9 @@
                         [ngModelOptions]="{standalone: true}"
                         aria-label="Selecione um usuário"
                         [compareWith]="compareById"
-                        [(ngModel)]="pedido.idPessoa" required>
-                    <option *ngFor="let pessoa of pessoas"
-                            [ngValue]="pessoa.id">{{pessoa.nome}}</option>
+                        [(ngModel)]="pedido.pessoa" required>
+                        <option *ngFor="let pessoa of pessoas"
+                        [ngValue]="pessoa.id">{{pessoa.nome}}</option>
                 </select>
             </div>
             </div>
@@ -47,13 +47,10 @@
                         </div>
                         <div class="form-group">
                           <label for="estampa">Estampa</label>
-                          <input type="file" class="form-control-file" id="estampa" name="estampa" [(ngModel)]="file" required>
+                          <input [(ngModel)]="camisa.estampa" type="file"  class="form-control shadow-sm" name="estampa" required>
                         </div>
 
-                        <div>
-                           <img href="C:\Users\eliezer.silva1\git\estamparia\estampas\Vilmarzin.png">
-                          <!-- <pre>{{file}}</pre> -->
-                        </div>
+
 
 
                         <div class="form-group">
@@ -72,7 +69,7 @@
 
                         <div class="form-group">
                           <label for="nomeArquivo">Nome do Arquivo</label>
-                          <input type="text" class="form-control" id="nomeArquivo" name="nomeArquivo" maxlength="30" required>
+                          <input  [(ngModel)]="camisa.nomeArquivo" type="text" class="form-control" id="nomeArquivo" name="nomeArquivo" maxlength="30" required>
                         </div>
                       </form>
                     </div>

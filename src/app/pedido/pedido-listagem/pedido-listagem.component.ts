@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { PedidoService } from 'src/app/shared/service/pedido.service';
 import { Pessoa } from 'src/app/shared/model/pessoa';
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-pedido-listagem',
   templateUrl: './pedido-listagem.component.html',
@@ -52,6 +51,7 @@ buscarPedido(){
     }
   );
 }
+
 
 excluir(id: number){
 
