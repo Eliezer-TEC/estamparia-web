@@ -21,13 +21,18 @@ export class PessoaListagemComponent {
 
   }
 
+  ngOnInit(): void {
+    //Similar ao método main() do Java
+    this.buscarPessoa();
+  }
+
   pesquisar(){
     this.pessoaService.listarComSeletor(this.seletor).subscribe(
       resultado => {
         this.pessoa = resultado;
       },
       erro => {
-        console.log('Erro ao buscar as pessoas', erro)
+        console.log('Erro ao buscar a pessoa', erro)
       }
     );
   }
@@ -47,7 +52,7 @@ export class PessoaListagemComponent {
         this.pessoa = resultado;
       },
       erro => {
-        console.log('Erro ao buscar produtos', erro);
+        console.log('Erro ao buscar os usuários', erro);
       }
     );
   }
