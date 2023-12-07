@@ -13,10 +13,8 @@ export class PedidoService {
 
   constructor(private httpClient: HttpClient) { }
 
-
-
   listarTodos(): Observable<Array<Pedido>> {
-    return this.httpClient.get<Array<Pedido>>(this.API);
+    return this.httpClient.get<Array<Pedido>>(this.API + "/todos");
   }
 
   listarComSeletor(seletor: PedidoSeletor){

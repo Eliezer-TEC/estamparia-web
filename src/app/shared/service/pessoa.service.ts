@@ -22,12 +22,9 @@ export class PessoaService {
     return this.httpClient.post<Array<Pessoa>>(this.API + "/filtro", seletor);
   }
 
-
   salvar(pessoa: Pessoa): Observable<Pessoa> {
     return this.httpClient.post<Pessoa>(this.API + "/cadastrar", pessoa);
   }
-
-
 
   atualizar(pessoa: Pessoa): Observable<Pessoa> {
     return this.httpClient.put<Pessoa>(this.API, pessoa);

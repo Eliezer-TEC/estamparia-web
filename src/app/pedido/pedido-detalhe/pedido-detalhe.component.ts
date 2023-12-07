@@ -31,16 +31,17 @@ export class PedidoDetalheComponent {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.idPedido = params['id'];
-      if (this.idPedido) {
-        this.buscarPedidoId();
-      }
-    });
+  // buscando pedido na tela de cadastro
+  // ngOnInit(): void {
+  //   this.route.params.subscribe((params) => {
+  //     this.idPedido = params['id'];
+  //     if (this.idPedido) {
+  //       this.buscarPedidoId();
+  //     }
+  //   });
 
-    this.buscarPedido();
-  }
+  //   this.buscarPedido();
+  // }
 
   buscarPedido(){
     this.pessoaService.listarTodos().subscribe(

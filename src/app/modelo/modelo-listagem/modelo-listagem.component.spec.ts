@@ -1,8 +1,8 @@
+import { ModeloListagemComponent } from './modelo-listagem.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModeloListagemComponent } from './modelo-listagem.component';
 
-describe('ModeloListagemComponent', () => {
+describe('PedidoListagemComponent', () => {
   let component: ModeloListagemComponent;
   let fixture: ComponentFixture<ModeloListagemComponent>;
 

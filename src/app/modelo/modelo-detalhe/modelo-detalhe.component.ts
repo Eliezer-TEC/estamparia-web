@@ -65,7 +65,7 @@ export class ModeloDetalheComponent {
         Swal.fire('Sucesso', 'Modelo atualizado com sucesso', 'success');
       },
       (erro) => {
-        Swal.fire('Erro', 'Não foi possível modelo o pedido: ' + erro, 'error');
+        Swal.fire('Erro', 'Não foi possível atualizar o modelo: ' + erro, 'error');
       }
     );
   }
