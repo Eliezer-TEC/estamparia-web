@@ -20,11 +20,11 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="cpf">Cpf</label>
-                  <input class="form-control" name="cpf" >
+                  <input class="form-control" name="cpf" [(ngModel)]="seletor.cpf" >
                 </div>
               </div>
               <label for ="funcionario">Funcionário</label>
-                    <select class="form-control shadow-sm" name="funcionario" required>
+                    <select class="form-control shadow-sm" name="funcionario" [(ngModel)]="seletor.funcionario">
                       <option value="sim">Sim</option>
                       <option value="nao">Não</option>
                     </select>

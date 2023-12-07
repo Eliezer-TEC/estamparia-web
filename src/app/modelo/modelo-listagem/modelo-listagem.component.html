@@ -44,9 +44,11 @@
                 <tr>
                   <th scope="col">id</th>
                   <th scope="col">Nome</th>
-                  <th scope="col" >Custo</th>
-                  <th scope="col" >Valor Venda</th>
-                  <th scope="col"   >Ações</th>
+                  <th scope="col">Custo</th>
+                  <th scope="col">Valor Venda</th>
+                  <th scope="col" class="text-center">Data Cadastro</th>
+                  <th scope="col" class="text-center">Data Fim Vigencia</th>
+                  <th scope="col" class="text-center">Ações</th>
                 </tr>
 
 
@@ -56,8 +58,10 @@
                 <tr *ngFor="let m of modelo">
                   <td>{{m.id}}</td>
                   <td>{{ m.nome }}</td>
-                  <td>{{ m.custo }}</td>
-                  <td>{{ m.valorVenda }}</td>
+                  <td>{{ m.custo | currency: 'BRL'}}</td>
+                  <td>{{ m.valorVenda | currency: 'BRL'}}</td>
+                  <td class="text-center">{{m.dataCadastro | date: 'dd/MM/yyyy'}}</td>
+                  <td class="text-center">{{m.dataFimVigencia| date: 'dd/MM/yyyy'}}</td>
                   <td class="text-center">
                     <button class="btn btn-xs btn-secondary mr-2"
                             (click)="editar(m.id)">Editar

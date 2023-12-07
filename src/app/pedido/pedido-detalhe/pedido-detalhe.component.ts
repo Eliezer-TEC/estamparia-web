@@ -131,7 +131,11 @@ export class PedidoDetalheComponent {
   }
 
   public voltar() {
+<<<<<<< HEAD
+    this.router.navigate(['']);
+=======
     this.router.navigate(['/pedido/lista']);
+>>>>>>> 64504a3f81825bdf53178bddb2f0e69ee9b45f4f
   }
   public compareById(r1: any, r2: any): boolean {
     return r1 && r2 ? r1.id === r2.id : r1 === r2;
