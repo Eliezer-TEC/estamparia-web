@@ -1,1 +1,77 @@
-<p>modelo-listagem works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header bg-white text-black">
+
+          <div class="card-header bg-dark text-white">
+            <h5>Listagem de Modelo</h5>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="nome">Nome</label>
+              <input class="form-control" name="nome" >
+            </div>
+            <div class="form-group col-md-6">
+              <label for="cpf">Custo</label>
+              <input class="form-control" name="custo" >
+            </div>
+              <div class="form-group col-md-6">
+                <label for="cpf">Valor Venda</label>
+                <input class="form-control" name="valorVenda" >
+              </div>
+            </div>
+          </div>
+
+
+          <br>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <button type="submit" class="form-control btn btn-secondary"
+                      (click)="listarComSeletor()">Pesquisar</button>
+            </div>
+            <div class="form-group col-md-6">
+              <button type="submit" class="form-control btn btn-danger"
+                      (click)="limpar()">Limpar</button>
+            </div>
+          </div>
+          <h5>Lista de Modelo</h5>
+        </div>
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-responsive">
+              <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Custo</th>
+                  <th scope="col">Valor Venda</th>
+                  <th scope="col" class="text-center">Ações</th>
+                </tr>
+
+
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let m of modelo">
+                  <td>{{m.id}}</td>
+                  <td>{{ m.nome }}</td>
+                  <td>{{ m.custo }}</td>
+                  <td>{{ m.valorVenda }}</td>
+                  <td class="text-center">
+                    <button class="btn btn-xs btn-secondary mr-2"
+                            (click)="editar(m.id)">Editar
+                    </button>
+                    &nbsp;
+                    <button class="btn btn-xs btn-danger"
+                            (click)="excluir(m.id)">Excluir
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
