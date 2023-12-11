@@ -48,27 +48,35 @@ export class ModeloDetalheComponent {
       this.inserirModelo();
     }
   }
-  inserirModelo() {
-    this.modeloService.salvar(this.modelo).subscribe(
-      () => {
-        Swal.fire('Sucesso', 'Modelo salvo com sucesso', 'success');
+
+  atualizarModelo(){
+    //é EDIÇÃO
+    this.modeloService.atualizar(this.modelo).subscribe(
+      sucesso => {
+        Swal.fire("Sucesso", "Modelo atualizado!", 'success');
         this.modelo = new Modelo();
       },
-      (erro) => {
-        Swal.fire('Erro', 'Não foi possível salvar o modelo: ' + erro, 'error');
+      erro => {
+        Swal.fire("Erro", "Erro ao atualizar o Modelo: " + erro, 'error');
       }
     );
   }
-  atualizarModelo() {
-    this.modeloService.atualizar(this.modelo).subscribe(
-      () => {
-        Swal.fire('Sucesso', 'Modelo atualizado com sucesso', 'success');
+
+
+  inserirModelo(){
+    //é CADASTRO
+    this.modeloService.salvar(this.modelo).subscribe(
+      sucesso => {
+
+        Swal.fire("Sucesso", "Modelo cadastrado!", 'success');
+        this.modelo = new Modelo();
       },
-      (erro) => {
-        Swal.fire('Erro', 'Não foi possível atualizar o modelo: ' + erro, 'error');
+      erro => {
+        Swal.fire("Erro", "Erro ao cadastrar o Modelo: " + erro, 'error');
       }
     );
   }
+
   public voltar() {
     this.router.navigate(['']);
 

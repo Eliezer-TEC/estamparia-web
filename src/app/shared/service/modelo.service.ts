@@ -18,7 +18,7 @@ export class ModeloService {
   }
 
   atualizar(modeloParaAtualizar: Modelo): Observable<Modelo> {
-    return this.httpClient.put<Modelo>(this.API, modeloParaAtualizar);
+    return this.httpClient.put<Modelo>(this.API + '/atualizar', modeloParaAtualizar);
   }
 
   salvar(novoModelo: Modelo): Observable<Modelo> {
@@ -35,6 +35,7 @@ export class ModeloService {
   listarComSeletor(seletor: ModeloSeletor){
     return this.httpClient.post<Array<Modelo>>(this.API + "/filtro", seletor);
   }
+
 
   pesquisarPorId(id: number): Observable<Modelo> {
     return this.httpClient.get<Modelo>(this.API + '/' + id);

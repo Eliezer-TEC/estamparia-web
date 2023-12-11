@@ -3,7 +3,7 @@ import {Pessoa} from './pessoa';
 export class Pedido {
   id: number;
   idPessoa: Pessoa;
-  idCamisa: Camisa;
+  camisa: Camisa = new Camisa();
   total: number;
   status: string;
   quantidade: number;
