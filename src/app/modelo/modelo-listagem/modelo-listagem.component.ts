@@ -32,7 +32,7 @@ pesquisar(){
 }
 
 limpar(){
-  this.seletor = new ModeloSeletor();
+  this.modelo = [];
 }
 
 editar(id:number){

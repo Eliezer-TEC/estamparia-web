@@ -23,7 +23,7 @@ export class PedidoService {
 
 
   buscarPorId(id: number): Observable<Pedido> {
-    return this.httpClient.get<Pedido>(`${this.API}/${id}`);
+    return this.httpClient.get<Pedido>(this.API + '/' + id);
   }
 
   salvar(pedido: Pedido): Observable<Pedido> {

@@ -13,7 +13,6 @@ export class PessoaService {
   private readonly API = 'http://localhost:8080/api/pessoa';
   constructor(private httpClient: HttpClient) { }
 
-
   listarTodos(): Observable<Array<Pessoa>> {
     return this.httpClient.get<Array<Pessoa>>(this.API + "/todos");
   }

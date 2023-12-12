@@ -99,6 +99,6 @@ export class PessoaDetalheComponent {
   }
 
   public voltar() {
-    this.router.navigate(['/pessoa/lista']);
+    this.router.navigate(['pessoa/lista']);
   }
 }

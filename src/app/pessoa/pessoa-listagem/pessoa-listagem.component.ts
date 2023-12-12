@@ -21,10 +21,10 @@ export class PessoaListagemComponent {
 
   }
 
-  ngOnInit(): void {
-    //Similar ao método main() do Java
-    this.buscarPessoa();
-  }
+  // ngOnInit(): void {
+  //   //Similar ao método main() do Java
+  //   this.buscarPessoa();
+  // }
 
   pesquisar(){
     this.pessoaService.listarComSeletor(this.seletor).subscribe(
@@ -38,7 +38,7 @@ export class PessoaListagemComponent {
   }
 
   limpar(){
-    this.seletor = new PessoaSeletor();
+    this.pessoa = [];
   }
 
 

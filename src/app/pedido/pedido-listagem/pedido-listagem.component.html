@@ -10,11 +10,11 @@
           <div class="row">
             <div class="form-group col-md-6">
               <label for="nome">Nome</label>
-              <input class="form-control" name="nome" >
+              <input class="form-control" name="nome">
             </div>
             <div class="form-group col-md-6">
               <label for="cpf">Total</label>
-              <input class="form-control" name="total" >
+              <input class="form-control" name="total">
             </div>
             <div class="form-group col-md-6">
               <div class="form-group">
@@ -27,7 +27,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="cpf">Quantidade</label>
-                <input class="form-control" name="quantidade" >
+                <input class="form-control" name="quantidade">
               </div>
             </div>
           </div>
@@ -36,12 +36,10 @@
           <br>
           <div class="row">
             <div class="form-group col-md-6">
-              <button type="submit" class="form-control btn btn-secondary"
-                      (click)="pesquisar()">Pesquisar</button>
+              <button type="submit" class="form-control btn btn-secondary" (click)="pesquisar()">Pesquisar</button>
             </div>
             <div class="form-group col-md-6">
-              <button type="submit" class="form-control btn btn-danger"
-                      (click)="limpar()">Limpar</button>
+              <button type="submit" class="form-control btn btn-danger" (click)="limpar()">Limpar</button>
             </div>
           </div>
           <h5>Lista de Pedidos</h5>
@@ -49,16 +47,35 @@
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-responsive" id="table-data">
-              <thead>
-                <tr>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Total</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Quantidade</th>
-                  <th scope="col" class="text-center">Ações</th>
-                </tr>
+            <div class="table-responsive">
+              <table class="table table-responsive" id="table-data">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col" class="text-center">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let p of pedido">
+                    <td>{{p.pessoa.nome}}</td>
+                    <td>{{ p.total }}</td>
+                    <td>{{ p.status }}</td>
+                    <td>{{ p.quantidade }}</td>
+                    <td class="text-center">
+                      <button class="btn btn-xs btn-secondary mr-2" (click)="editar(p.id)">Editar
+                      </button>
+                      &nbsp;
+                      <button class="btn btn-xs btn-danger" (click)="excluir(p.id)">Excluir
+                      </button>
 
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
               </thead>
               <tbody>
