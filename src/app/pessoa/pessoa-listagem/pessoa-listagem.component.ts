@@ -38,7 +38,7 @@ export class PessoaListagemComponent {
   }
 
   limpar(){
-    this.seletor = new PessoaSeletor();
+    this.pessoa = [];
   }
 
   editar(id:number){
