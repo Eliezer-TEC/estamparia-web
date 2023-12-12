@@ -20,13 +20,13 @@ export class ModeloListagemComponent {
 
 
 }
-listarComSeletor(){
+pesquisar(){
   this.modeloService.listarComSeletor(this.seletor).subscribe(
     resultado => {
       this.modelo = resultado;
     },
     erro => {
-      console.log('Erro ao buscar produtos', erro)
+      console.log('Erro ao buscar a modelo', erro)
     }
   );
 }
@@ -39,6 +39,7 @@ editar(id:number){
   this.router.navigate(['/modelo/detalhe', id])
 
 }
+
 
 buscarModelo(){
   this.modeloService.listarTodos().subscribe(

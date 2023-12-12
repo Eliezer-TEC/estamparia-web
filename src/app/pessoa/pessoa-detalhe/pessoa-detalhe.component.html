@@ -29,9 +29,10 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="cpf">CPF</label>
-                    <input [(ngModel)]="pessoa.cpf" class="form-control shadow-sm" minlength="11" name="cpf" required>
-                    <div *ngIf="((!pessoa.cpf || (pessoa.cpf && pessoa.cpf.length != 11)) && ngForm.submitted)"
-                      class="invalid-feedback">Informe um CPF válido</div>
+                      <input [ngClass]="((!pessoa.cpf || (pessoa.cpf && pessoa.cpf.length != 11)) && ngForm.submitted)
+                      ? 'form-control is-invalid' : 'form-control'"
+                      [(ngModel)]="pessoa.cpf" class="shadow-sm rounded-0" minlength="11" name="cpf" required>
+                      <div class="invalid-feedback">Informe um CPF válido</div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -49,7 +50,7 @@
                     <div class="input-group">
                       <input [(ngModel)]="pessoa.ddd" class="form-control shadow-sm" minlength="2" maxlength="2" name="ddd" required>
 
-                      <input [(ngModel)]="pessoa.telefone" class="form-control shadow-sm" minlength="9" name="telefone" required>
+                      <input [(ngModel)]="pessoa.telefone" class="form-control shadow-sm" minlength="9" maxlength="9" name="telefone" required>
                     </div>
                     <div *ngIf="((!pessoa.telefone || (pessoa.telefone && pessoa.telefone.length < 9)) && ngForm.submitted)"
                       class="invalid-feedback">Insira um telefone válido</div>

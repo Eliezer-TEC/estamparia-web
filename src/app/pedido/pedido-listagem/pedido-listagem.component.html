@@ -76,6 +76,28 @@
                 </tbody>
               </table>
             </div>
+
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let p of pedido">
+                  <td>{{p.idPessoa.nome}}</td>
+                  <td>{{ p.total }}</td>
+                  <td>{{ p.status }}</td>
+                  <td>{{ p.quantidade }}</td>
+                  <td class="text-center">
+                    <button class="btn btn-xs btn-secondary mr-2"
+                            (click)="editar(p.id)">Editar
+                    </button>
+                    &nbsp;
+                    <button class="btn btn-xs btn-danger"
+                            (click)="excluir(p.id)">Excluir
+                    </button>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

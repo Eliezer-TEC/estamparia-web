@@ -41,9 +41,7 @@ export class PessoaListagemComponent {
     this.pessoa = [];
   }
 
-  editar(id:number){
-    this.router.navigate(['/pessoa/detalhe', ])
-  }
+
 
 
   buscarPessoa(){
@@ -56,7 +54,9 @@ export class PessoaListagemComponent {
       }
     );
   }
-
+  editar(id:number){
+    this.router.navigate(['/pessoa/detalhe', id])
+  }
   excluir(id: number){
     Swal.fire({
       title: 'Você tem certeza disso?',

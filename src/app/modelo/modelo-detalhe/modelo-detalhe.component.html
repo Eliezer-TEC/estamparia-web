@@ -8,6 +8,7 @@
           </div>
           <div class="card-body">
             <form #ngForm="ngForm">
+
               <div class="form-group">
                 <label for="valorVenda">Nome</label>
                 <input [(ngModel)]="modelo.nome" class="form-control shadow-sm" name="nome" required>
@@ -18,6 +19,7 @@
                 <label for="valorVenda">Valor de Venda (R$) </label>
                 <input [(ngModel)]="modelo.valorVenda" class="form-control shadow-sm" name="valorVenda" required>
                 <div *ngIf="!modelo.valorVenda" class="invalid-feedback">Valor de Venda é obrigatório</div>
+                <div class="invalid-feedback">Informe o Valor</div>
               </div>
               <div class="form-group">
                 <label for="custo">Custo (R$)</label>
