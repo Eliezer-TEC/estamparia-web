@@ -32,74 +32,11 @@ export class PedidoDetalheComponent {
     private route: ActivatedRoute
   ) {}
 
-
-
-  ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.idPedido = params['id'];
-      if (this.idPedido) {
-        this.buscarPedido();
-      }
-    });
-    this.buscarModelo();
-    this.buscarPessoas();
-  }
-
-  buscarModelo(){
-    this.modeloService.listarTodos().subscribe(
-      (resultado) => {
-        this.modelos = resultado;
-      },
-      (erro) => {
-        Swal.fire('Erro','Erro ao buscar todas as pessoas');
-      }
-    );
-  }
-
-
-  buscarPessoas(){
-    this.pessoaService.listarTodos().subscribe(
-      (resultado) => {
-        this.pessoas = resultado;
-      },
-      (erro) => {
-        Swal.fire('Erro','Erro ao buscar todas as pessoas');
-      }
-    );
-  }
-
-  buscarPedido(){
-    this.pessoaService.listarTodos().subscribe(
-      (resultado) => {
-        this.pessoas = resultado;
-      },
-      (erro) => {
-        Swal.fire('Erro','Erro ao buscar todos os pedidos');
-      }
-    );
-  }
-
-  buscarPedidoId() {
-    this.pedidoService.buscarPorId(this.idPedido).subscribe(
-      (resultado) => {
-        this.pedido = resultado;
-      },
-      (erro) => {
-        Swal.fire(
-          'Erro',
-          'Erro ao buscar pedido com ID (' + this.idPedido + ') : ' + erro,
-          'error'
-        );
-      }
-    );
-  }
-
   public cadastrar(form: NgForm) {
     if (form.invalid) {
       Swal.fire('Erro', 'Formulário inválido', 'error');
       return;
     }
-
     if (this.idPedido) {
       this.atualizarPedido();
     } else {

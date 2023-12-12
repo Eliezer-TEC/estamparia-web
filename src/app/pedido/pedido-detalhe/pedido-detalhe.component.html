@@ -11,9 +11,9 @@
             <div class="form-group">
               <div class="form-group col-md-6">
                 <label for="idCliente">Cliente</label>
-                <select class="form-control" name="fabricanteDoProduto"
+                <select class="form-control" name="nomeCliente"
                         [ngModelOptions]="{standalone: true}"
-                        aria-label="Selecione um usuário"
+                        aria-label="Selecione um cliente"
                         [compareWith]="compareById"
                         [(ngModel)]="pedido.pessoa" required>
                         <option *ngFor="let pessoa of pessoas"
@@ -49,9 +49,6 @@
                           <label for="estampa">Estampa</label>
                           <input type="file" class="form-control-file" id="estampa" name="estampa" [(ngModel)]="camisa.estampa" required>
                         </div>
-
-
-
 
                         <div class="form-group">
                           <label for="idModelo">Modelo</label>
