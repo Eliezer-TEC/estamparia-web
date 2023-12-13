@@ -20,6 +20,8 @@ export class PedidoListagemComponent {
 
 
 }
+
+
 pesquisar(){
   this.pedidoService.listarComSeletor(this.seletor).subscribe(
     resultado => {
@@ -36,7 +38,7 @@ limpar(){
 }
 
 editar(id:number){
-  this.router.navigate(['/pessoa/detalhe', id])
+  this.router.navigate(['/pedido/detalhe', id])
 
 }
 

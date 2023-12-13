@@ -19,9 +19,11 @@ export class PedidoDetalheComponent {
   public idPedido: number;
   public modelo = Modelo;
   public pedido: Pedido = new Pedido();
-  public pessoas: Pessoa[] = [];
   public camisa: Camisa = new Camisa();
+
   public modelos: Modelo[] = [];
+  public pessoas: Pessoa[] = [];
+
 
 
   constructor(
@@ -31,6 +33,47 @@ export class PedidoDetalheComponent {
     private router: Router,
     private route: ActivatedRoute
   ) {}
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.idPedido = params['id'];
+      if (this.idPedido) {
+        this.buscarPedido();
+      }
+    });
+    this.pessoaService.listarTodos().subscribe(
+      resultado => {
+        this.pessoas = resultado;
+      },
+      erro => {
+        Swal.fire("Erro", "Erro ao buscar os usuários: " + erro, 'error');
+      }
+    );
+
+    this.modeloService.listarTodos().subscribe(
+      resultado => {
+        this.modelos = resultado;
+      },
+      erro => {
+        Swal.fire("Erro", "Erro ao buscar os modelos: " + erro, 'error');
+      }
+    );
+
+  }
+
+  buscarPedido() {
+    this.pedidoService.buscarPorId(this.idPedido).subscribe(
+      (resultado) => {
+        this.pedido = resultado;
+      },
+      (erro) => {
+        Swal.fire(
+          'Erro',
+          'Erro ao buscar modelo com ID (' + this.idPedido + ') : ' + erro,
+          'error'
+        );
+      }
+    );
+  }
 
   public cadastrar(form: NgForm) {
     if (form.invalid) {
