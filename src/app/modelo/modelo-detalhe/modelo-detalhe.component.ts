@@ -21,6 +21,17 @@ export class ModeloDetalheComponent {
     private route: ActivatedRoute
   ) { }
 
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.idModelo = params['id'];
+      if (this.idModelo) {
+        this.buscarModelo();
+      }
+    });
+  }
+
+
+
   buscarModelo() {
     this.modeloService.buscarPorId(this.idModelo).subscribe(
       (resultado) => {

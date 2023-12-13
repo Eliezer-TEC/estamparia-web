@@ -46,17 +46,16 @@ export class PessoaDetalheComponent {
 
 
   buscarUsuarioPorId() {
-    this.pessoaService.pesquisarPorId(this.pessoa.id).subscribe(
+    this.pessoaService.pesquisarPorId(this.idPessoa).subscribe(
       (resultado) => {
         this.pessoa = resultado;
       },
       (erro) => {
         Swal.fire(
           'Erro',
-          'Erro ao buscar Usuário com ID (' + this.pessoa + ') : ',
+          'Erro ao buscar modelo com ID (' + this.idPessoa + ') : ' + erro,
           'error'
         );
-        return;
       }
     );
   }

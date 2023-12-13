@@ -36,7 +36,7 @@ limpar(){
 }
 
 editar(id:number){
-  this.router.navigate(['/pessoa/detalhe', ])
+  this.router.navigate(['/pessoa/detalhe', id])
 
 }
 
