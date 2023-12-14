@@ -16,7 +16,7 @@ export class PessoaDetalheComponent {
   public idPessoa: number;
   public pessoa: Pessoa = new Pessoa();
   public enderecos: Endereco[] = [];
-  ngForm: NgForm;
+  // ngForm: NgForm;
 
   constructor(
     private pessoaService: PessoaService,
