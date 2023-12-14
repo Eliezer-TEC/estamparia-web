@@ -19,7 +19,8 @@ export class PedidoDetalheComponent {
   public idPedido: number;
   public modelo = Modelo;
   public pedido: Pedido = new Pedido();
-  public camisa: Camisa = new Camisa();
+  public estampa: File;
+  // public camisa: Camisa = new Camisa();
 
   public modelos: Modelo[] = [];
   public pessoas: Pessoa[] = [];
@@ -58,6 +59,10 @@ export class PedidoDetalheComponent {
       }
     );
 
+  }
+
+  selecionarEstampa(event: any): void {
+    this.estampa = event.target.files[0];
   }
 
   buscarPedido() {

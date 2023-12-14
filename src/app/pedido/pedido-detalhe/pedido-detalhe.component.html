@@ -8,7 +8,7 @@
             <h5 class="m-0">Detalhes do Pedido</h5>
           </div>
           <div class="card-body">
-            <form #ngForm="ngForm">
+            <form #ngForm="ngForm" method="POST" action="upload" enctype="multipart/form-data">
             <div class="form-group">
               <div class="form-group col-md-6">
                 <label for="idCliente">Cliente</label>
@@ -27,7 +27,7 @@
                       <form>
                         <div class="form-group">
                           <label for="tamanho">Tamanho</label>
-                          <select [(ngModel)]="pedido.camisa.tamanho" class="form-control shadow-sm" name="tamanho" required>
+                          <select [(ngModel)]="pedido.tamanho" class="form-control shadow-sm" name="tamanho" required>
                             <option value="PP">PP</option>
                             <option value="P">P</option>
                             <option value="M">M</option>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                           <label for="cor">Cor</label>
-                          <select [(ngModel)]="pedido.camisa.cor" class="form-control shadow-sm" name="cor" required>
+                          <select [(ngModel)]="pedido.cor" class="form-control shadow-sm" name="cor" required>
                             <option value="Preto">Preto</option>
                             <option value="Branco">Branco</option>
                             <option value="Vermelho">Vermelho</option>
@@ -46,27 +46,27 @@
                           </select>
                         </div>
                         <div class="form-group">
-                          <label for="estampa">Estampa</label>
-                          <input type="file" class="form-control-file" id="estampa" name="estampa" [(ngModel)]="pedido.camisa.estampa" required>
+                          <label for="estampa">Estampa: </label>
+                          <input type="file" class="form-control-file" id="estampa" name="estampa" (change)="selecionarEstampa($event)" accept="image/*" required>
                         </div>
 
                         <div class="form-group">
                           <label for="idModelo">Modelo</label>
-                          <select class="form-control" name="idModelo"
-                            [ngModelOptions]="{standalone: true}"
-                            aria-label="Selecione um modelo"
-                            [compareWith]="compareById"
-                              [(ngModel)]="pedido.camisa.idModelo" required>
-                            <option *ngFor="let modelo of modelos"
-                            [ngValue]="modelo">{{modelo.nome}}</option>
-                </select>
+                            <select class="form-control" name="idModelo"
+                              [ngModelOptions]="{standalone: true}"
+                              aria-label="Selecione um modelo"
+                              [compareWith]="compareById"
+                                [(ngModel)]="pedido.idModelo" required>
+                              <option *ngFor="let modelo of modelos"
+                              [ngValue]="modelo">{{modelo.nome}}</option>
+                            </select>
                         </div>
 
 
 
                         <div class="form-group">
                           <label for="nomeArquivo">Nome do Arquivo</label>
-                          <input type="text" class="form-control" id="nomeArquivo" name="nomeArquivo" [(ngModel)]="pedido.camisa.nomeArquivo" maxlength="30" required>
+                          <input type="text" class="form-control" id="nomeArquivo" name="nomeArquivo" [(ngModel)]="pedido.nomeArquivo" maxlength="30" required>
                         </div>
                       </form>
                     </div>
@@ -75,10 +75,10 @@
 
 
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="total">Total</label>
               <input [(ngModel)]="pedido.total" class="form-control shadow-sm" name="total">
-            </div>
+            </div> -->
             <div class="form-group">
               <label for="status">Status do Pedido</label>
               <select [(ngModel)]="pedido.status" class="form-control shadow-sm" name="status" required>
