@@ -31,7 +31,7 @@ export class PedidoService {
   }
 
   atualizar(pedido: Pedido): Observable<Pedido> {
-    return this.httpClient.put<Pedido>(`${this.API}/${pedido.id}`, pedido);
+    return this.httpClient.put<Pedido>(this.API +'/atualizar', pedido);
   }
 
   excluir(id: number): Observable<Pedido> {

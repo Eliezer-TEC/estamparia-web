@@ -26,7 +26,7 @@ export class PessoaService {
   }
 
   atualizar(pessoa: Pessoa): Observable<Pessoa> {
-    return this.httpClient.put<Pessoa>(this.API, pessoa);
+    return this.httpClient.put<Pessoa>(this.API + "/atualizar", pessoa);
   }
 
   pesquisarPorId(id: number): Observable<Pessoa> {

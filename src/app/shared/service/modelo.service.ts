@@ -17,8 +17,9 @@ export class ModeloService {
     return this.httpClient.get<Modelo>(`${this.API}/${id}`);
   }
 
-  atualizar(modelo: Modelo): Observable<Modelo> {
-    return this.httpClient.put<Modelo>(this.API, modelo);
+  atualizar(modeloAtualizar: Modelo): Observable<Modelo> {
+    // const url = `${this.API}/${modelo.id}`;
+    return this.httpClient.put<Modelo>(this.API +'/atualizar', modeloAtualizar);
   }
   salvar(novoModelo: Modelo): Observable<Modelo> {
     return this.httpClient.post<Modelo>(this.API + '/cadastrar', novoModelo); // NO CORPO DO JSON

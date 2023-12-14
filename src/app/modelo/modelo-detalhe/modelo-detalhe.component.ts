@@ -11,7 +11,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./modelo-detalhe.component.scss']
 })
 export class ModeloDetalheComponent {
-  [x: string]: any;
+
+  // [x: string]: any;
   public idModelo: number;
   public modelo: Modelo = new Modelo();
 
@@ -72,7 +73,6 @@ export class ModeloDetalheComponent {
       }
     );
   }
-
 
   inserirModelo(){
     //é CADASTRO
