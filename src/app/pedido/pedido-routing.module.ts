@@ -5,7 +5,9 @@ import { PedidoDetalheComponent } from './pedido-detalhe/pedido-detalhe.componen
 
 const routes: Routes = [
   {path: 'lista', component: PedidoListagemComponent},
-  {path: 'detalhe', component: PedidoDetalheComponent}
+  {path: 'detalhe', component: PedidoDetalheComponent},
+  {path: 'detalhe/:id', component: PedidoDetalheComponent},
+  {path: 'lista/todos', component: PedidoListagemComponent}
 
 ];
 

@@ -2,7 +2,7 @@ import { Modelo } from './modelo';
 import {Pessoa} from './pessoa';
 export class Pedido {
   id: number;
-  idPessoa: Pessoa;
+  idPessoa: number;
   total: number;
   status: string;
   quantidade: number;

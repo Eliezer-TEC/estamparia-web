@@ -19,7 +19,7 @@
                         [(ngModel)]="pedido.idPessoa"
                         required>
                     <option *ngFor="let pessoa of pessoas"
-                        [ngValue]="pessoa">{{pessoa.nome}}</option>
+                        [ngValue]="pessoa.id">{{pessoa.nome}}</option>
                 </select>
             </div>
             </div>
