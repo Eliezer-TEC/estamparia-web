@@ -7,10 +7,11 @@ import { PessoaListagemComponent } from './pessoa-listagem/pessoa-listagem.compo
 import { PessoaDetalheComponent } from './pessoa-detalhe/pessoa-detalhe.component';
 
 
+
 @NgModule({
   declarations: [
     PessoaListagemComponent,
-    PessoaDetalheComponent
+    PessoaDetalheComponent,
   ],
   imports: [
     CommonModule,
