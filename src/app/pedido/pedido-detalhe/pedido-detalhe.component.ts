@@ -19,8 +19,9 @@ export class PedidoDetalheComponent {
   public idPedido: number;
   public modelo = Modelo;
   public pedido: Pedido = new Pedido();
-  public estampa: File;
+  public estampa: File[] = [];
   // public camisa: Camisa = new Camisa();
+  // files: File[] = [];
 
   public modelos: Modelo[] = [];
   public pessoas: Pessoa[] = [];
@@ -62,7 +63,14 @@ export class PedidoDetalheComponent {
   }
 
   selecionarEstampa(event: any): void {
-    this.estampa = event.target.files[0];
+    const mimeType = event.target.files[0].type;
+    // this.estampa = event.target.files[0];
+    if (mimeType.match(/image\/*/) == null) {
+      alert('Apenas imagens são suportados');
+      return;
+    }
+
+    this.estampa = event.target.files;
   }
 
   buscarPedido() {

@@ -47,7 +47,18 @@
                         </div>
                         <div class="form-group">
                           <label for="estampa">Estampa: </label>
-                          <input type="file" class="form-control-file" id="estampa" name="estampa" (change)="selecionarEstampa($event)" accept="image/*" required>
+                          <br>
+                          <!-- <input type="file" class="form-control-file" id="estampa" name="estampa" (change)="selecionarEstampa($event)" accept="image/*" required> -->
+                          <input #onlyImage type="file" class="form-control-file" id="estampa" name="estampa" (change)="selecionarEstampa($event)" required> >
+
+
+                          <div class="images-container">
+                            <ng-container *ngFor="let file of estampa">
+                              <div class="img-item">
+                                <img class="img-thumbnail" [src]="file | fileDisplay | async" alt="" srcset="">
+                              </div>
+                            </ng-container>
+                          </div>
                         </div>
 
                         <div class="form-group">
