@@ -58,6 +58,7 @@
                     <tr>
                       <th scope="col">Id</th>
                       <th scope="col">Nome</th>
+                      <th scope="col">Funcionario</th>
                       <th scope="col" class="text-center">Data de Nascimento</th>
                       <th scope="col"  class="text-center">CPF</th>
                       <th scope="col" class="text-center">Ações</th>
@@ -67,6 +68,7 @@
                     <tr *ngFor="let p of pessoa">
                       <td>{{ p.id }}</td>
                       <td>{{ p.nome }}</td>
+                      <td>{{p.funcionario}}</td>
                       <td class="text-center">{{p.dtNasc | date: 'dd/MM/yyyy'}}</td>
                       <td  class="text-center">{{ p.cpf }}</td>
                       <td class="text-center">
