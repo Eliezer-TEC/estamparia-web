@@ -20,13 +20,11 @@ export class PedidoDetalheComponent {
   public modelo = Modelo;
   public pedido: Pedido = new Pedido();
   public estampa: File[] = [];
-  // public camisa: Camisa = new Camisa();
+  public camisa: Camisa = new Camisa();
   // files: File[] = [];
 
   public modelos: Modelo[] = [];
   public pessoas: Pessoa[] = [];
-
-
 
   constructor(
     private pedidoService: PedidoService,
@@ -43,34 +41,40 @@ export class PedidoDetalheComponent {
       }
     });
     this.pessoaService.listarTodos().subscribe(
-      resultado => {
+      (resultado) => {
         this.pessoas = resultado;
       },
-      erro => {
-        Swal.fire("Erro", "Erro ao buscar os usuários: " + erro, 'error');
+      (erro) => {
+        Swal.fire('Erro', 'Erro ao buscar os usuários: ' + erro, 'error');
       }
     );
 
     this.modeloService.listarTodos().subscribe(
-      resultado => {
+      (resultado) => {
         this.modelos = resultado;
       },
-      erro => {
-        Swal.fire("Erro", "Erro ao buscar os modelos: " + erro, 'error');
+      (erro) => {
+        Swal.fire('Erro', 'Erro ao buscar os modelos: ' + erro, 'error');
       }
     );
-
   }
-
+  previewUrl: string | ArrayBuffer | null = null;
   selecionarEstampa(event: any): void {
     const mimeType = event.target.files[0].type;
     // this.estampa = event.target.files[0];
     if (mimeType.match(/image\/*/) == null) {
-      alert('Apenas imagens são suportados');
-      return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (typeof e.target?.result === 'string') {
+          this.previewUrl = e.target.result;
+        } else {
+        }
+        alert('Apenas imagens são suportados');
+        return;
+      };
+      reader.readAsDataURL(mimeType);
+      this.estampa = event.target.files;
     }
-
-    this.estampa = event.target.files;
   }
 
   buscarPedido() {
@@ -118,13 +122,16 @@ export class PedidoDetalheComponent {
         Swal.fire('Sucesso', 'Pedido atualizado com sucesso', 'success');
       },
       (erro) => {
-        Swal.fire('Erro', 'Não foi possível atualizar o pedido: ' + erro, 'error');
+        Swal.fire(
+          'Erro',
+          'Não foi possível atualizar o pedido: ' + erro,
+          'error'
+        );
       }
     );
   }
 
-  public voltar() {
-  }
+  public voltar() {}
   public compareById(r1: any, r2: any): boolean {
     return r1 && r2 ? r1.id === r2.id : r1 === r2;
   }
